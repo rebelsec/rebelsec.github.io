@@ -1,0 +1,3 @@
+[submodule "themes/NgeBlog"]
+	path = themes/NgeBlog
+	url = https://github.com/rebelsec/NgeBlog.git
