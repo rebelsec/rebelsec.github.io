@@ -1,4 +1,4 @@
-baseURL = "https://rebelsec.id/"
+baseURL = "https://rebelsec.github.io/"
 theme = "NgeBlog"
 title = "Rebelsec"
 languageCode = "id"
