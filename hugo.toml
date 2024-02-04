@@ -1,8 +1,6 @@
 baseURL = "https://rebelsec.github.io/"
 theme = "NgeBlog"
 title = "Rebelsec"
-languageCode = "id"
-languageName = "Indonesian"
 summaryLength = 20
 
 # default amount of posts in each pages
