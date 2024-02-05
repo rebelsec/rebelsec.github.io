@@ -3,7 +3,7 @@ title: "Talk to Galatia Sijabat"
 date: 2022-04-27T17:14:40+07:00
 ---
 
-.Untuk menghubungi saya, silahkan kirimkan email ke [galatiasijabat03@gmail.com](mailto:galatiasijabat03@gmail.com). Email tersebut saya gunakan untuk menerima semua email masuk yang khusus hanya yang berhubungan dengan saya langsung.
+tesUntuk menghubungi saya, silahkan kirimkan email ke [galatiasijabat03@gmail.com](mailto:galatiasijabat03@gmail.com). Email tersebut saya gunakan untuk menerima semua email masuk yang khusus hanya yang berhubungan dengan saya langsung.
 
 Jika anda menghubungi saya via email yang tertera di halaman ini, sangat disarankan untuk _encrypt email_ yang anda kirimkan ke saya. Informasi _PGP Key_ saya ada di bawah ini.
 
