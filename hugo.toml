@@ -61,23 +61,6 @@ paginate = 6
   Discord = ""
   HackTheBox = ""
 
-
-[params.giscus]
-  repo = "rebelsec/rebelsec.github.io"
-  repo_id = "R_kgDOLOK-Rw"
-  category = "General"
-  category_id = "DIC_kwDOLOK-R84Cc-uS"
-  mapping = "title"
-  strict = false
-  reactions_enabled = true
-  emit_metadata = false
-  input_position = "bottom"
-  theme = "preferred_color_scheme"
-  lang = "en"
-  crossorigin = "anonymous"
-  async = true
-
-
 # Menu config
 [menu]
   [[menu.main]]
