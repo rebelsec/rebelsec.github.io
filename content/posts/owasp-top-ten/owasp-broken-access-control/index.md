@@ -6,6 +6,8 @@ categories: ["Owasp Top Ten"]
 thumbnail: "/icon/owasp.svg"
 ---
 
+![Owaps top ten](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgiBvA85_BZ2tdH_9QCYHUgFw4V5J0mfoGbDjn1MzrRK3SV9vk3CUUxb5hRWcmVWPAAqzswwWfZop_WqEnmKQsOEqhhB1jl-ON6yiZmuSVkuXZ0TlxS4zZezTTpXXy0v_Sm9lS9Otsg9n9jsy8GTM3-O6IrEN0oceam8fthmCHlIs65XJccHz_pvp0eQN0/s1280/OWAPS.webp)
+
 Pada Artikel kali ini, akan masuk ke seri **Owasp Top 10**, kali ini saya akan menjelaskan **OWASP Top 10** yang berada di urutan pertama yaitu _Broken Access Control_, sebelum ke topik, apa itu **Owasp** & apa itu **Owasp Top 10**?
 
 [Open Source Foundation for Application Security (OWASP Foundation)](https://owasp.org/)
