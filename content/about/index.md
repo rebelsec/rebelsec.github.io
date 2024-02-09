@@ -5,6 +5,8 @@ date: 2022-03-10
 author: Galatia Sijabat
 ---
 
+![Logo](./logo.webp)
+
 Perkenalkan nama saya **Galatia Sijabat**, saya tertarik dengan dunia Komputer, sekarang saya sedang mendalami bidang cyber security. hasil dari tulisan saya ini mungkin dapat membantu anda mengenal apa itu cyber security (walaupun saya juga masih mencoba untuk mendalaminya), selain itu tulisan saya ini juga berguna bagi saya sendiri jika suatu saat ingin mencari kembali referensi tentang topik yang sudah pernah saya lakukan sebelumnya.
 
 ## Web Application Security Enthusiast
