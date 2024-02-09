@@ -2,6 +2,7 @@ baseURL = "https://rebelsec.github.io/"
 theme = "NgeBlog"
 title = "Rebelsec"
 summaryLength = 20
+enableEmoji = true
 
 # default amount of posts in each pages
 paginate = 6
@@ -11,6 +12,7 @@ paginate = 6
   request_form_url = "#"
   Description = "Belajar dari dasar dan Bangun kemampuan Seputar Cyber Security, Bug Bounty, Teknologi Informasi, Pemrograman, dan Linux Berbahasa Indonesia mulai dari nol."
   Keywords = "Cyber Security, Bug Bounty, Teknologi Informasi, Pemrograman, Linux "
+  math = true
 
 # Author config
 [params.author]
@@ -99,3 +101,13 @@ paginate = 6
     suffixes = ["xml"]
   [mediaTypes."application/rss+xml"]
     suffixes = ["xml"]
+
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)']]
