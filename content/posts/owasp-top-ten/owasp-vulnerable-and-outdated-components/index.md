@@ -3,12 +3,6 @@ title: "Owasp Top 10 Series — A6 (Vulnerable and Outdated Components)"
 date: 2022-05-07T18:45:34+07:00
 tags: ["security"]
 categories: ["Owasp Top Ten"]
-<<<<<<< HEAD
-thumbnail: "/icon/owasp.svg"
----
-
-![Owaps top ten](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgiBvA85_BZ2tdH_9QCYHUgFw4V5J0mfoGbDjn1MzrRK3SV9vk3CUUxb5hRWcmVWPAAqzswwWfZop_WqEnmKQsOEqhhB1jl-ON6yiZmuSVkuXZ0TlxS4zZezTTpXXy0v_Sm9lS9Otsg9n9jsy8GTM3-O6IrEN0oceam8fthmCHlIs65XJccHz_pvp0eQN0/s1280/OWAPS.webp)
-=======
 description: "OWASP Top 10 — A6: Vulnerable and Outdated Components adalah kerentanan yang terjadi ketika aplikasi menggunakan perangkat lunak, library, atau dependensi yang sudah usang atau memiliki celah keamanan. Pencegahan meliputi pembaruan rutin, pemantauan CVE, serta penggunaan dependensi yang didukung dan aman."
 disableHLJS: true 
 disableShare: false
@@ -24,7 +18,6 @@ UseHugoToc: true
 ---
 ![Owasp Top 10 Series — A6 (Vulnerable and Outdated Components)](cover.png)
 
->>>>>>> fd99555 (Update rebelsec.id Site)
 
 ## Pengantar
 
@@ -98,11 +91,7 @@ attacker melakukan **recon** do ip address _54.153.101.52_ dan mendapati bahwa m
 
 CVE diatas terdapat kerentanan **RCE**
 
-<<<<<<< HEAD
-![Hackerone CVE 2014 0133](https://drive.google.com/uc?id=1LTMAZjEVU2YZZ01u-CIsWqeZWQvhXcCH)
-=======
 ![Hackerone CVE 2014 0133](1.png)
->>>>>>> fd99555 (Update rebelsec.id Site)
 
 ## Mitigasi
 

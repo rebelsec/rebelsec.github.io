@@ -1,11 +1,6 @@
 ---
 title: "Mengenal Sql Injection dan cara mengatasinya"
 date: 2024-01-29T22:30:15+07:00
-<<<<<<< HEAD
-tags: ["security"]
-categories: ["PWA"]
-thumbnail: "/icon/portswigger.svg"
-=======
 disableHLJS: true 
 disableShare: false
 disableHLJS: false
@@ -17,7 +12,6 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
->>>>>>> fd99555 (Update rebelsec.id Site)
 ---
 
 Pada Artikel kali ini, kita akan masuk ke seri **PWA** atau **PortSwigger Web Security Academy**, dan memasuki kategori **SQL injection** tapi sebelum itu alangkah baiknya kalau kita mengetahui dan mengenal apa itu **SQL injection** ?

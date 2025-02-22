@@ -1,15 +1,6 @@
 ---
 title: "Owasp Top 10 Series — A3 (Injection)"
 date: 2022-04-30T07:36:45+07:00
-<<<<<<< HEAD
-tags: []
-categories: ["Owasp Top Ten"]
-tags: ['security']
-thumbnail: "/icon/owasp.svg"
----
-
-![Owaps top ten](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgiBvA85_BZ2tdH_9QCYHUgFw4V5J0mfoGbDjn1MzrRK3SV9vk3CUUxb5hRWcmVWPAAqzswwWfZop_WqEnmKQsOEqhhB1jl-ON6yiZmuSVkuXZ0TlxS4zZezTTpXXy0v_Sm9lS9Otsg9n9jsy8GTM3-O6IrEN0oceam8fthmCHlIs65XJccHz_pvp0eQN0/s1280/OWAPS.webp)
-=======
 categories: ["Owasp Top Ten"]
 tags: ['security']
 description: "OWASP Top 10 — A3: Injection adalah kerentanan yang terjadi ketika aplikasi menerima dan mengeksekusi input berbahaya tanpa validasi, memungkinkan serangan seperti SQL Injection, Command Injection, dan Cross-Site Scripting (XSS). Pencegahan meliputi penggunaan parameterized queries, input validation, dan escaping karakter berbahaya."
@@ -27,7 +18,6 @@ UseHugoToc: true
 ---
 ![Owasp Top 10 Series — A3 (Injection)](cover.png)
 
->>>>>>> fd99555 (Update rebelsec.id Site)
 
 ## Pengantar
 
@@ -43,11 +33,7 @@ jadi yang dimaksud **OWASP TOP 10**? owasp top 10 merupakan sebuah cara untuk me
 
 **Injection** merupakan sebuah kondisi yangg dimana aplikasi dapat memproses sebuah inputan user padahal itu **Tidak Valid** yang dapat membuat aplikasi/sistem itu menjalankan perintah yang **tidak seharusnya**.
 
-<<<<<<< HEAD
-![Ilustrasi RCE](https://miro.medium.com/v2/resize:fit:720/format:webp/0*6v3xCpxJLy39gzgj.png)
-=======
 ![Ilustrasi RCE](1.webp)
->>>>>>> fd99555 (Update rebelsec.id Site)
 
 dapat diambil kesimpulan dari gambaar di atas bahwa attacker membuat/menulis sebuah **Malicious** / kode yang berbahaya, kemudian mengirim data(kode) tersebut ke aplikasi, sayangnya aplikasi/website itu tidak cukup baik dalam melakukan filtering dan validasi kembali dari user sehingga mengakibatkan kode yang di input oleh user tadi dijalankan oleh aplikasi/website itu sendiri.
 
@@ -84,15 +70,9 @@ https://intensedebate.com/commenthistory/$YourSiteId%20union%20select%201,2,@@VE
 
 kode pun terinjeksi oleh aplikasi
 
-<<<<<<< HEAD
-![Current user](https://drive.google.com/uc?id=1h3ujEpyJVk3lWfrTBhJEjk-024nrtql2)
-
-![Version](https://drive.google.com/uc?id=1TmO_lvDi7BY7Gz41gmA8iigiEY-IVyOP)
-=======
 ![Current user](2.png)
 
 ![Version](3.png)
->>>>>>> fd99555 (Update rebelsec.id Site)
 
 ### #1109311 SQL injection in acronis.cz via the log parameter
 
@@ -152,11 +132,7 @@ Content-Length: 185
 <REQUEST OBJECT_CLASS="TScenObject" ACTION="ScenObjects" SCEN_ID="33*" ExpectSigned="No" INT_SOFT_ID="DA61D1CE-757F-44C3-B3F7-11A026C37CD4" POINT_CODE="tzhr" lang="en"></REQUEST>
 ```
 
-<<<<<<< HEAD
-![sqli](https://drive.google.com/uc?id=1nzXJI0ZSnorUXlnuWzvy7z-9yc4TE0w7)
-=======
 ![sqli](4.png)
->>>>>>> fd99555 (Update rebelsec.id Site)
 
 kemudian attacker mengeskalasi kerentanan tersebut ke **RCETo** dengan bantuan **burp collaborator** :
 
@@ -171,11 +147,7 @@ Content-Length: 342
 
 and monitor your DNS logs for the incoming ping request:
 
-<<<<<<< HEAD
-![sqli to rce](https://drive.google.com/uc?id=1S5J1hRw0iayOqaaO2veOIiiL93PwbSNw)
-=======
 ![sqli to rce](5.png)
->>>>>>> fd99555 (Update rebelsec.id Site)
 
 kesimpulannya jika aplikasi tidak melakukan **filtering** maka akan mengganggu CIA Triad integrity, availability and confidentiality di aplikasi itu sendiri
 

@@ -3,12 +3,6 @@ title: "Owasp Top 10 Series — A7 (Identification and Authentication Failures)"
 date: 2022-05-10T18:45:34+07:00
 tags: ["security"]
 categories: ["Owasp Top Ten"]
-<<<<<<< HEAD
-thumbnail: "/icon/owasp.svg"
----
-
-![Owaps top ten](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgiBvA85_BZ2tdH_9QCYHUgFw4V5J0mfoGbDjn1MzrRK3SV9vk3CUUxb5hRWcmVWPAAqzswwWfZop_WqEnmKQsOEqhhB1jl-ON6yiZmuSVkuXZ0TlxS4zZezTTpXXy0v_Sm9lS9Otsg9n9jsy8GTM3-O6IrEN0oceam8fthmCHlIs65XJccHz_pvp0eQN0/s1280/OWAPS.webp)
-=======
 description: "OWASP Top 10 — A7: Identification and Authentication Failures adalah kerentanan yang terjadi ketika mekanisme autentikasi dan identifikasi tidak diterapkan dengan benar, memungkinkan serangan seperti credential stuffing, brute force, dan session hijacking. Pencegahan meliputi penggunaan autentikasi multi-faktor (MFA), pembatasan percobaan login, serta penyimpanan kredensial dengan hashing yang kuat (bcrypt, Argon2)."
 disableHLJS: true 
 disableShare: false
@@ -24,7 +18,6 @@ UseHugoToc: true
 ---
 ![Owasp Top 10 Series — A7 (Identification and Authentication Failures)](cover.png)
 
->>>>>>> fd99555 (Update rebelsec.id Site)
 
 ## Pengantar
 
@@ -38,11 +31,7 @@ jadi yang dimaksud **OWASP TOP 10**? owasp top 10 merupakan sebuah cara untuk me
 
 ### apa itu Identification and Authentication Failures ?
 
-<<<<<<< HEAD
-![Identification and Authentication Failures](https://techdocs.f5.com/content/dam/f5/kb/global/solutions/k14998322_images/IDandAuthFailures.png)
-=======
 ![Identification and Authentication Failures](1.png)
->>>>>>> fd99555 (Update rebelsec.id Site)
 
 **Identification and Authentication Failures** Merupakan sebuah celah keamanan yang terjadi karena autentikasi pada aplikasi tidak aman.
 

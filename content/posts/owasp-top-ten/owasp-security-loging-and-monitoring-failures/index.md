@@ -3,12 +3,6 @@ title: "Owasp Top 10 Series — A9 (Security Loging and Monitoring Failures)"
 date: 2022-05-16T12:45:34+07:00
 tags: ["security"]
 categories: ["Owasp Top Ten"]
-<<<<<<< HEAD
-thumbnail: "/icon/owasp.svg"
----
-
-![Owaps top ten](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgiBvA85_BZ2tdH_9QCYHUgFw4V5J0mfoGbDjn1MzrRK3SV9vk3CUUxb5hRWcmVWPAAqzswwWfZop_WqEnmKQsOEqhhB1jl-ON6yiZmuSVkuXZ0TlxS4zZezTTpXXy0v_Sm9lS9Otsg9n9jsy8GTM3-O6IrEN0oceam8fthmCHlIs65XJccHz_pvp0eQN0/s1280/OWAPS.webp)
-=======
 description: "OWASP Top 10 — A9: Security Logging and Monitoring Failures adalah kerentanan yang terjadi ketika sistem tidak mencatat atau memantau aktivitas mencurigakan dengan baik, menghambat deteksi dan respons terhadap serangan. Pencegahan meliputi implementasi logging yang komprehensif, pemantauan real-time, serta integrasi dengan SIEM untuk analisis ancaman."
 disableHLJS: true 
 disableShare: false
@@ -24,7 +18,6 @@ UseHugoToc: true
 ---
 ![Owasp Top 10 Series — A9 (Security Loging and Monitoring Failures)](cover.png)
 
->>>>>>> fd99555 (Update rebelsec.id Site)
 
 ## Pengantar
 

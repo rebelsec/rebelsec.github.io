@@ -3,12 +3,6 @@ title: "Owasp Top 10 Series — A5 (Security Misconfiguration)"
 date: 2022-05-05T18:45:34+07:00
 tags: ["security"]
 categories: ["Owasp Top Ten"]
-<<<<<<< HEAD
-thumbnail: "/icon/owasp.svg"
----
-
-![Owaps top ten](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgiBvA85_BZ2tdH_9QCYHUgFw4V5J0mfoGbDjn1MzrRK3SV9vk3CUUxb5hRWcmVWPAAqzswwWfZop_WqEnmKQsOEqhhB1jl-ON6yiZmuSVkuXZ0TlxS4zZezTTpXXy0v_Sm9lS9Otsg9n9jsy8GTM3-O6IrEN0oceam8fthmCHlIs65XJccHz_pvp0eQN0/s1280/OWAPS.webp)
-=======
 description: "OWASP Top 10 — A5: Security Misconfiguration adalah kerentanan yang terjadi akibat konfigurasi keamanan yang tidak tepat, seperti pengaturan default yang lemah, izin yang berlebihan, atau server yang mengekspos informasi sensitif. Pencegahan meliputi konfigurasi yang aman, pembaruan sistem rutin, serta penerapan prinsip least privilege."
 disableHLJS: true 
 disableShare: false
@@ -24,7 +18,6 @@ UseHugoToc: true
 ---
 ![Owasp Top 10 Series — A5 (Security Misconfiguration)](cover.png)
 
->>>>>>> fd99555 (Update rebelsec.id Site)
 
 ## Pengantar
 
@@ -38,11 +31,7 @@ jadi yang dimaksud **OWASP TOP 10**? owasp top 10 merupakan sebuah cara untuk me
 
 ### Apa itu Security Misconfiguration
 
-<<<<<<< HEAD
-![Security misconfiguration image](https://miro.medium.com/v2/resize:fit:1100/format:webp/0*AM6cAAjlTb_XpidB.jpg)
-=======
 ![Security misconfiguration image](1.webp)
->>>>>>> fd99555 (Update rebelsec.id Site)
 
 **Security Misconfiguration** adalah sebuah kerentanan yang terjadi karena kesalahan dari **Developer** itu sendiri, mungkin ia tidak mengikuti petunjuk (dokumentasi) dari sebuah library, framework atau pendukung lainnya yang digunakan untuk membangun aplikasinya.
 
@@ -152,11 +141,7 @@ https://try.nextcloud.com/assets/
 https://try.nextcloud.com/css/
 https://try.nextcloud.com/js/
 
-<<<<<<< HEAD
-![Nexcloud allow directory listing](https://drive.google.com/uc?id=1raD9QULR6AxnUMX3yCyvnCXuZ0bjaRxU)
-=======
 ![Nexcloud allow directory listing](2.png)
->>>>>>> fd99555 (Update rebelsec.id Site)
 
 ## Mitigasi
 

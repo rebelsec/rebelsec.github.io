@@ -1,14 +1,6 @@
 ---
 title: "Owasp Top 10 Series — A2 (Cryptographic Failures)"
 date: 2022-04-29T07:40:46+07:00
-<<<<<<< HEAD
-tags: ["security"]
-categories: ["Owasp Top Ten"]
-thumbnail: "/icon/owasp.svg"
----
-
-![Owaps top ten](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgiBvA85_BZ2tdH_9QCYHUgFw4V5J0mfoGbDjn1MzrRK3SV9vk3CUUxb5hRWcmVWPAAqzswwWfZop_WqEnmKQsOEqhhB1jl-ON6yiZmuSVkuXZ0TlxS4zZezTTpXXy0v_Sm9lS9Otsg9n9jsy8GTM3-O6IrEN0oceam8fthmCHlIs65XJccHz_pvp0eQN0/s1280/OWAPS.webp)
-=======
 categories: ["Owasp Top Ten"]
 tags: ["security"]
 description: "OWASP Top 10 — A2: Cryptographic Failures adalah kerentanan yang terjadi akibat penggunaan algoritma lemah, manajemen kunci yang buruk, atau data sensitif yang tidak dienkripsi dengan benar. Pencegahan meliputi penggunaan enkripsi kuat (AES-256, TLS 1.2+), pengelolaan kunci yang aman, dan menghindari protokol usang."
@@ -26,7 +18,6 @@ UseHugoToc: true
 ---
 
 ![Owasp Top 10 Series — A2 (Cryptographic Failures)](cover.png)
->>>>>>> fd99555 (Update rebelsec.id Site)
 
 ## Pengantar
 
@@ -68,11 +59,7 @@ https://account.clario.co/js/main.044af6485f6b0cd90809.js
 'https://firebasedynamiclinks.googleapis.com/v1/shortLinks?key=AIzaSyAw-SpLHVTIP3IFEIkckCuEmIhnUrY9OrQ';
 ```
 
-<<<<<<< HEAD
-![Gambar_1](https://drive.google.com/uc?id=1fnNfthzjzD7eQ1z3tAUySyXZ-7jQVVz_)
-=======
 ![Gambar_1](1.png)
->>>>>>> fd99555 (Update rebelsec.id Site)
 
 Kemudian attacker memanfaatkan kebocoran dari **API Key**
 

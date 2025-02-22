@@ -2,13 +2,6 @@
 title: "Owasp Top 10 Series — A1 (Broken Access Control)"
 date: 2022-04-28T22:29:15+07:00
 tags: ["security"]
-<<<<<<< HEAD
-categories: ["Owasp Top Ten"]
-thumbnail: "/icon/owasp.svg"
----
-
-![Owaps top ten](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgiBvA85_BZ2tdH_9QCYHUgFw4V5J0mfoGbDjn1MzrRK3SV9vk3CUUxb5hRWcmVWPAAqzswwWfZop_WqEnmKQsOEqhhB1jl-ON6yiZmuSVkuXZ0TlxS4zZezTTpXXy0v_Sm9lS9Otsg9n9jsy8GTM3-O6IrEN0oceam8fthmCHlIs65XJccHz_pvp0eQN0/s1280/OWAPS.webp)
-=======
 description: "OWASP Top 10 — A1: Broken Access Control adalah kerentanan yang terjadi ketika pembatasan akses tidak diterapkan dengan benar, memungkinkan pengguna yang tidak sah untuk mengakses atau memodifikasi data. Pencegahan meliputi prinsip least privilege, validasi kontrol akses di server, dan pengujian keamanan berkala."
 disableHLJS: true 
 disableShare: false
@@ -24,7 +17,6 @@ UseHugoToc: true
 ---
 
 ![Owasp Top 10 Series — A1 (Broken Access Control)](cover.png)
->>>>>>> fd99555 (Update rebelsec.id Site)
 
 Pada Artikel kali ini, akan masuk ke seri **Owasp Top 10**, kali ini saya akan menjelaskan **OWASP Top 10** yang berada di urutan pertama yaitu _Broken Access Control_, sebelum ke topik, apa itu **Owasp** & apa itu **Owasp Top 10**?
 
@@ -201,21 +193,13 @@ Cookie: csrftoken={TOKEN}; sessionid={SID}; mp_mixpanel__c=1;
 {"startTime":"2019-04-07","endTime":"2019-04-20","orderKeys":["43b29d60a9724fa9abbdc800044002d6"]}
 ```
 
-<<<<<<< HEAD
-![testing](https://drive.google.com/uc?id=1F3O8jpUwwy_yiffRPE9pcGSeb1vLVOvd)
-=======
 ![Gambar_1](1.png)
->>>>>>> fd99555 (Update rebelsec.id Site)
 
 Impact :
 
 Pencurian Data
 
-<<<<<<< HEAD
-![Gambar_2](https://drive.google.com/uc?id=1fGtV3R6F8mb0k3EBc39Rca6_5RmX6r1P)
-=======
 ![Gambar_2](2.png)
->>>>>>> fd99555 (Update rebelsec.id Site)
 
 ## Mitigasi
 

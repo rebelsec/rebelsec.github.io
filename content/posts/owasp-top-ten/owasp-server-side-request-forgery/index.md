@@ -3,12 +3,6 @@ title: "Owasp Top 10 Series — A10 (Server Side Request Forgery | SSRF)"
 date: 2022-05-20T12:45:34+07:00
 tags: ["security"]
 categories: ["Owasp Top Ten"]
-<<<<<<< HEAD
-thumbnail: "/icon/owasp.svg"
----
-
-![Owaps top ten](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgiBvA85_BZ2tdH_9QCYHUgFw4V5J0mfoGbDjn1MzrRK3SV9vk3CUUxb5hRWcmVWPAAqzswwWfZop_WqEnmKQsOEqhhB1jl-ON6yiZmuSVkuXZ0TlxS4zZezTTpXXy0v_Sm9lS9Otsg9n9jsy8GTM3-O6IrEN0oceam8fthmCHlIs65XJccHz_pvp0eQN0/s1280/OWAPS.webp)
-=======
 description: "OWASP Top 10 — A10: Server-Side Request Forgery (SSRF) adalah kerentanan yang terjadi ketika aplikasi web memproses permintaan dari pengguna tanpa validasi yang memadai, memungkinkan penyerang mengakses sumber daya internal atau eksternal secara tidak sah. Pencegahan meliputi whitelisting URL, membatasi akses ke alamat internal, serta validasi dan sanitasi input dengan ketat."
 disableHLJS: true 
 disableShare: false
@@ -24,7 +18,6 @@ UseHugoToc: true
 ---
 ![Owasp Top 10 Series — A10 (Server Side Request Forgery | SSRF)](cover.png)
 
->>>>>>> fd99555 (Update rebelsec.id Site)
 
 ## Pengantar
 

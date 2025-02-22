@@ -3,12 +3,6 @@ title: "Owasp Top 10 Series — A4 (Insecure Design)"
 date: 2022-05-03T17:59:24+07:00
 tags: ["security"]
 categories: ["Owasp Top Ten"]
-<<<<<<< HEAD
-thumbnail: "/icon/owasp.svg"
----
-
-![Owaps top ten](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgiBvA85_BZ2tdH_9QCYHUgFw4V5J0mfoGbDjn1MzrRK3SV9vk3CUUxb5hRWcmVWPAAqzswwWfZop_WqEnmKQsOEqhhB1jl-ON6yiZmuSVkuXZ0TlxS4zZezTTpXXy0v_Sm9lS9Otsg9n9jsy8GTM3-O6IrEN0oceam8fthmCHlIs65XJccHz_pvp0eQN0/s1280/OWAPS.webp)
-=======
 description: "OWASP Top 10 — A4: Insecure Design adalah kerentanan akibat kelemahan dalam perancangan sistem, termasuk kurangnya model keamanan, kontrol akses yang buruk, dan kesalahan dalam alur bisnis. Pencegahan meliputi secure design principles, threat modeling, serta pengujian keamanan sejak tahap awal pengembangan."
 disableHLJS: true 
 disableShare: false
@@ -24,7 +18,6 @@ UseHugoToc: true
 ---
 ![Owasp Top 10 Series — A4 (Insecure Design)](cover.png)
 
->>>>>>> fd99555 (Update rebelsec.id Site)
 
 ## Pengantar
 
