@@ -1,6 +1,5 @@
 ---
 title: "Talk to Galatia Sijabat"
-<<<<<<< HEAD
 date: 2022-04-27T17:14:40+07:00
 =======
 date: 2020-09-15T11:30:03+00:00
