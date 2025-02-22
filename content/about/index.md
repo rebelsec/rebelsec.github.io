@@ -1,20 +1,15 @@
 ---
-<<<<<<< HEAD
-title: Tentang Galatia Sijabat
+title: "Tentang Galatia Sijabat"
 description: "About Me page"
 date: 2022-03-10
 author: Galatia Sijabat
-=======
-title: "Tentang Galatia Sijabat"
-date: 2020-09-15T11:30:03+00:00
 showToc: false
 TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-disableHLJS: true # to disable highlightjs
+disableHLJS: true
 disableShare: false
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: false
@@ -23,8 +18,8 @@ ShowPostNavLinks: false
 ShowWordCount: false
 ShowRssButtonInSectionTermList: false
 UseHugoToc: false
->>>>>>> fd99555 (Update rebelsec.id Site)
 ---
+
 
 ![Logo](./logo.webp)
 

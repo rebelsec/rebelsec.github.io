@@ -1,16 +1,13 @@
 ---
 title: "Talk to Galatia Sijabat"
 date: 2022-04-27T17:14:40+07:00
-=======
-date: 2020-09-15T11:30:03+00:00
 showToc: false
 TocOpen: false
 draft: false
 hidemeta: false
 comments: false
-disableHLJS: true # to disable highlightjs
+disableHLJS: true
 disableShare: false
-disableHLJS: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: false
@@ -19,9 +16,7 @@ ShowPostNavLinks: false
 ShowWordCount: false
 ShowRssButtonInSectionTermList: false
 UseHugoToc: false
->>>>>>> fd99555 (Update rebelsec.id Site)
 ---
-
 
 
 Untuk menghubungi saya, silahkan kirimkan email ke [galatiasijabat03@gmail.com](mailto:galatiasijabat03@gmail.com). Email tersebut saya gunakan untuk menerima semua email masuk yang khusus hanya yang berhubungan dengan saya langsung.
