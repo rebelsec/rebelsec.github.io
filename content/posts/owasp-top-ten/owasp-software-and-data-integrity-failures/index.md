@@ -3,12 +3,6 @@ title: "Owasp Top 10 Series — A8 (Software and Data Integrity Failures)"
 date: 2022-05-13T18:45:34+07:00
 tags: ["security"]
 categories: ["Owasp Top Ten"]
-<<<<<<< HEAD
-thumbnail: "/icon/owasp.svg"
----
-
-![Owaps top ten](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgiBvA85_BZ2tdH_9QCYHUgFw4V5J0mfoGbDjn1MzrRK3SV9vk3CUUxb5hRWcmVWPAAqzswwWfZop_WqEnmKQsOEqhhB1jl-ON6yiZmuSVkuXZ0TlxS4zZezTTpXXy0v_Sm9lS9Otsg9n9jsy8GTM3-O6IrEN0oceam8fthmCHlIs65XJccHz_pvp0eQN0/s1280/OWAPS.webp)
-=======
 description: "OWASP Top 10 — A8: Software and Data Integrity Failures adalah kerentanan yang terjadi akibat kurangnya validasi integritas dalam pembaruan perangkat lunak, dependensi, atau data penting, memungkinkan serangan seperti supply chain attacks dan manipulasi data. Pencegahan meliputi penggunaan digital signature, verifikasi sumber dependensi, serta implementasi mekanisme keamanan berbasis checksum."
 disableHLJS: true 
 disableShare: false
@@ -24,7 +18,6 @@ UseHugoToc: true
 ---
 ![Owasp Top 10 Series — A8 (Software and Data Integrity Failures)](cover.png)
 
->>>>>>> fd99555 (Update rebelsec.id Site)
 
 ## Pengantar
 
