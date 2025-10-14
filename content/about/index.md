@@ -53,4 +53,4 @@ jika anda ada masukan, pertanyaan atau apapun itu silahkan [hubungi saya](/conta
 
 Let's Connect : [Galatia Sijabat - Linkedin](https://linkedin.com/in/galatiasijabat)
 
-Download Test Apk From Rebelsec.id: [Test Apk](https://rebelsec.id/img/test.apk)
+Download Test Apk From Rebelsec.id: [Test Apk](https://rebelsec.id/poc.html)
