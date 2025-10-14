@@ -54,4 +54,4 @@ jika anda ada masukan, pertanyaan atau apapun itu silahkan [hubungi saya](/conta
 Let's Connect : [Galatia Sijabat - Linkedin](https://linkedin.com/in/galatiasijabat)
 
 Test : [Browser](https://frozzipies.github.io/popupspoof.html)
-Test : [Browser](https://frozzipies.github.io/spoofff.html)
+Test : [Browser](https://frozzipies.github.io/test.apk)
