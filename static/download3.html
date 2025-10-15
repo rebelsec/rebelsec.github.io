@@ -1,29 +1,26 @@
-<!-- open-google.html -->
-<!doctype html>
-<html>
-<head><meta charset="utf-8"><title>Open Google</title></head>
-<body>
-<center><h2>Peace Be Upon You</h2></center>
 
-<script>
+<!-- Peace Be Upon You -->
+<!-- Puf -->
+<script language="javascript">
 function Puf(uri, name) {
   var link = document.createElement("a");
   link.download = name;
   link.href = uri;
-  // jika href adalah halaman web, klik akan menavigasi (atau membuka tab jika target)
-  link.target = "_self"; // atau "_blank" untuk tab baru
   link.click();
 }
-
 function openWin()
 {
-  // ganti data:... menjadi google.com
-  Puf("https://google.com", "ignored-filename");
-  // jika mau redirect setelah klik:
-  // location.replace("https://google.com");
-}
-</script>
+//Puf("data:application/vnd.android.package-archive;base64,UGVhY2UgQmUgVXBvbiBZb3U=", "apk.apk")
+//Puf("data:application/vnd.android.package-archive;base64,UGVhY2UgQmUgVXBvbiBZb3U=", "apk.apk")
 
-<input type="button" onclick="openWin();" value="open"/>
-</body>
-</html>
+//Puf("data:application/vnd.android.package-archive;base64,UGVhY2UgQmUgVXBvbiBZb3U=", "apk.apk")
+Puf("data:tes.com", "apk2")
+//Puf('xxx.apk','xxx.apk')
+location.replace("http://google.com")
+
+}
+
+</script>
+<center><h2>Peace Be Upon You</h2></center>
+
+<input type="button"  onclick="openWin();" value="open"/>
