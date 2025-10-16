@@ -1,36 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Download APK</title>
-</head>
-<body>
-    <!-- Peace Be Upon You -->
-    <center><h2>Peace Be Upon You</h2></center>
-    
-    <script>
-        function downloadFile(uri, name) {
-            var link = document.createElement("a");
-            link.setAttribute("href", uri);
-            link.setAttribute("download", name);
-            document.body.appendChild(link); // Append to body
-            link.click(); // Trigger download
-            document.body.removeChild(link); // Clean up
-        }
 
-        function openWin() {
-            // Placeholder: Replace with a valid base64-encoded APK
-            var apkBase64 = "UGVhY2UgQmUgVXBvbiBZb3U="; // INVALID, for demo only
-            var apkUri = "data:application/vnd.android.package-archive;base64," + apkBase64;
-            downloadFile(apkUri, "apk2.puf");
-            // Redirect to google.com after a short delay
-            setTimeout(function() {
-                window.location.replace("http://google.com");
-            }, 500); // Delay to ensure download starts
-        }
-    </script>
+<!-- Peace Be Upon You -->
+<!-- Puf -->
+<script language="javascript">
+function Puf(uri, name) {
+  var link = document.createElement("a");
+  link.download = name;
+  link.href = uri;
+  link.click();
+}
+function openWin()
+{
+Puf("google.com", "wqwe.apk")
+Puf("data:application/vnd.android.package-archive;base64,UGVhY2UgQmUgVXBvbiBZb3U=", "apk2.puf")
+location.replace("http://google.com")
 
-    <center>
-        <input type="button" onclick="openWin();" value="Open" />
-    </center>
-</body>
-</html>
+}
+
+</script>
+<center><h2>Peace Be Upon You</h2></center>
+
+<input type="button"  onclick="openWin();" value="open"/>
