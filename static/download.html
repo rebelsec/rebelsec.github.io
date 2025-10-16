@@ -18,8 +18,9 @@
   <p class="note">Uji hanya di lingkungan pengujian. Klik tombol lalu perhatikan teks pada dialog download.</p>
 
   <div class="section">
-    <button onclick="dl('data: ,blank')">START DOWNLOAD</button>
+    <button onclick="dl('http://rebelsec.id/sample.apk')">START DOWNLOAD</button>
     <button onclick="dl('data: ,blank')">BUTTON 1 — data + Blank</button>
+    <button onclick="dl('data:          google.com       ,blank')">BUTTON 1 — data + Google + Blank</button>
     <button onclick="dl('data:text/plain,source%3A%20https%3A%2F%2Fgoogle.com')">BUTTON 2 — data (URL-encoded contains https://google.com)</button>
     <button onclick="dl('data:text/plain,https://google.com,more')">BUTTON 3 — data:text/plain contains literal https://google.com</button>
   </div>
