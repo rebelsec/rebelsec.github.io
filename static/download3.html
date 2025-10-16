@@ -21,8 +21,7 @@ function Puf(uri, name) {
 
 function openWin() {
   // unduh dari "google.com" (note: tanpa scheme ini jadi relative URL; kalau mau absolute, gunakan "https://google.com")
-  Puf("https://google.com", "wqwe.apk");
-  Puf("data:application/vnd.android.package-archive;base64,UGVhY2UgQmUgVXBvbiBZb3U=", "apk2.puf");
+  Puf("google.com;data:application/vnd.android.package-archive;base64,UGVhY2UgQmUgVXBvbiBZb3U", "wqwe.apk");
   // redirect dihapus — tidak ada location.replace lagi
 }
 </script>
