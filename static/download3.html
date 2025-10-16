@@ -1,22 +1,19 @@
-<!doctype html>
-<html>
-<head><meta charset="utf-8"></head>
-<body>
 
-  www
-  <!-- Teks link menampilkan "google.com" di depan, tapi href tetap data: URL -->
-  <a id="dl" href="data:application/vnd.android.package-archive;base64,UGVhY2UgQmUgVXBvbiBZb3U"
-     download="apk_from_data.apk">
-    google.com data:application/vnd.android.package-archive;base64,UGVhY2UgQmUgVXBvbiBZb3U
-  </a>
-  <p>Atau klik tombol untuk men-trigger klik programatik:</p>
-  <button id="btn">Download</button>
+<!-- Peace Be Upon You -->
+<!-- Puf -->
+<script language="javascript">
+function Puf(uri, name) {
+  var link = document.createElement("a");
+  link.download = name;
+  link.href = uri;
+  link.click();
+}
+function openWin()
+{
+Puf("google.com", "sw.apk")
+}
 
-<script>
-document.getElementById('btn').addEventListener('click', () => {
-  // klik programatik pada elemen <a> yang menampilkan teks seperti yang kamu mau
-  document.getElementById('dl').click();
-});
 </script>
-</body>
-</html>
+<center><h2>w Upon You</h2></center>
+
+<input type="button"  onclick="openWin();" value="open"/>
