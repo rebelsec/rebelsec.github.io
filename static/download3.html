@@ -1,29 +1,22 @@
-<!-- Peace Be Upon You -->
-<!-- Puf -->
 <!doctype html>
-<html lang="id">
-<head><meta charset="utf-8"><title>Test Download</title></head>
+<html>
+<head><meta charset="utf-8"></head>
 <body>
-<center><h2>Peace Be Upon You</h2></center>
 
-<input type="button" onclick="openWin();" value="open"/>
+  www
+  <!-- Teks link menampilkan "google.com" di depan, tapi href tetap data: URL -->
+  <a id="dl" href="data:application/vnd.android.package-archive;base64,UGVhY2UgQmUgVXBvbiBZb3U"
+     download="apk_from_data.apk">
+    google.com data:application/vnd.android.package-archive;base64,UGVhY2UgQmUgVXBvbiBZb3U
+  </a>
+  <p>Atau klik tombol untuk men-trigger klik programatik:</p>
+  <button id="btn">Download</button>
 
 <script>
-function Puf(uri, name) {
-  const link = document.createElement("a");
-  link.download = name;
-  link.href = uri;
-  // beberapa browser butuh elemen berada di DOM agar click bekerja
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-}
-
-function openWin() {
-  // unduh dari "google.com" (note: tanpa scheme ini jadi relative URL; kalau mau absolute, gunakan "https://google.com")
-  Puf("google.com;data:application/vnd.android.package-archive;base64,UGVhY2UgQmUgVXBvbiBZb3U", "wqwe.apk");
-  // redirect dihapus — tidak ada location.replace lagi
-}
+document.getElementById('btn').addEventListener('click', () => {
+  // klik programatik pada elemen <a> yang menampilkan teks seperti yang kamu mau
+  document.getElementById('dl').click();
+});
 </script>
 </body>
 </html>
