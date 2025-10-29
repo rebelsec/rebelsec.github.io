@@ -103,7 +103,7 @@ Di bawah ini terdapat Informasi tentang sertifikasi, pengalaman saya di perusaha
 - [Trakteer Hall of Fame](https://trakteer.id/our-heroes) - Galatia Sijabat
 - [Kaskus Hall of Fame](https://bantuan.kaskus.co.id/hc/id/articles/360026355992-Hall-of-Fame) - Galatia Sijabat
 - [Wageningen University & Research Hall of Fame](https://www.wur.nl/nl/over-wageningen/hall-of-fame-responsible-disclosure.htm) - Galatia Sijabat
-<<<<<<< HEAD
-=======
 - [Juara I Kompetisi Bug Bounty Bali Digital Festival II 2023](https://www.google.com/search?q=Juara+I+Kompetisi+Bug+Bounty+Bali+Digital+Festival+II+2023) - Galatia Sijabat
->>>>>>> fd99555 (Update rebelsec.id Site)
+
+
+- [google](https://www.google.com/url?sa=i&url=https%3A%2F%2Frebelsec.id) - Galatia Sijabat
