@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Download Button PoC</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; display:flex; align-items:center; justify-content:center; height:100vh; margin:0; background:#f6f7fb; }
+    .card { background:#fff; padding:24px; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.08); text-align:center; width:min(520px,92%); }
+    button { appearance:none; border:0; padding:12px 18px; border-radius:8px; font-size:16px; cursor:pointer; }
+    .primary { background:#1a73e8; color:#fff; }
+    .info { margin-top:8px; font-size:13px; color:#555; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Download PoC</h2>
+    <p class="info">Klik tombol di bawah untuk memulai unduhan dari host target.</p>
+    <button id="dlBtn" class="primary">Download</button>
+    <p class="info" id="status"></p>
+  </div>
+
+  <script>
+    const DL_URL = "https://drive.usercontent.google.com/download?id=1nrGFlUv6PFGoXlq-ujxafw1uLyOp4s_j&export=download&authuser=0&confirm=t&uuid=b8355234-25b9-4cb7-ac51-003405191964&at=AKSUxGNTGezKYQFA88IaLHOfgPup%3A1761820865056";
+
+    document.getElementById('dlBtn').addEventListener('click', function () {
+      const status = document.getElementById('status');
+      status.textContent = 'Memulai unduhan…';
+
+      // Create a temporary anchor and trigger click to start download.
+      // Note: cross-origin servers may ignore the "download" attribute;
+      // browser UI and behavior depend on the server's response headers.
+      const a = document.createElement('a');
+      a.href = DL_URL;
+      a.rel = "noopener noreferrer";
+      // Suggest a filename; the server may override this via Content-Disposition.
+      a.download = "mf2.5.5-dev.apk";
+      // Open in same tab or new tab depending on browser; using _self usually triggers download directly.
+      a.target = "_self";
+
+      // Attach to DOM, click, then remove
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+
+      // Provide a small delay message update in case browser blocks automatic download
+      setTimeout(() => {
+        status.textContent = "Jika unduhan tidak otomatis, coba tap dan tahan link ini lalu buka di tab baru: " + DL_URL;
+      }, 1200);
+    });
+  </script>
+</body>
+</html>
