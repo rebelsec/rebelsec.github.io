@@ -18,7 +18,6 @@
     button.secondary{background:#2563eb}
     .status{margin-top:10px;font-size:13px;color:var(--muted);min-height:20px}
     .note{font-size:12px;color:var(--muted);margin-top:8px}
-    pre{background:#0f172a;color:#fff;padding:8px;border-radius:6px;text-align:left;overflow:auto}
   </style>
 </head>
 <body>
@@ -28,7 +27,7 @@
 
     <div class="btn-row">
       <button id="btnNfcOnly">NFC → wait 3s</button>
-      <button id="btnFsOnly" class="secondary">Fullscreen → wait 3s</button>
+      <button id="btnFsOnly" class="secondary">Wait 3s → Fullscreen</button>
       <button id="btnNfcThenFs">NFC → (re-request) → wait 3s → Fullscreen</button>
     </div>
 
@@ -59,10 +58,8 @@
     try {
       setStatus('Requesting NFC permission (prompt)...');
       const reader = new NDEFReader();
-      // .scan() triggers the permission prompt; returns when scanning started or rejected
-      await reader.scan();
+      await reader.scan(); // triggers the permission prompt
       setStatus('NFC permission granted (scan started).');
-      // Attach handlers to keep the reader alive for demo (optional)
       reader.onreading = () => setStatus('NFC tag read (event).');
       reader.onreadingerror = () => setStatus('NFC read error.');
       return { ok:true, reader };
@@ -112,13 +109,13 @@
     btnNfcOnly.disabled = false;
   });
 
-  // Button 2: Fullscreen -> delay 3s
+  // Button 2: Wait 3s -> Fullscreen
   btnFsOnly.addEventListener('click', async () => {
     btnFsOnly.disabled = true;
+    setStatus('Waiting ' + (DELAY_MS/1000) + 's before entering fullscreen...');
+    await delay(DELAY_MS);
     const ok = await enterFullscreen();
     if (!ok) { btnFsOnly.disabled = false; return; }
-    setStatus('Waiting ' + (DELAY_MS/1000) + 's ...');
-    await delay(DELAY_MS);
     setStatus('Fullscreen sequence complete.');
     btnFsOnly.disabled = false;
   });
@@ -128,8 +125,7 @@
     btnNfcThenFs.disabled = true;
     // First NFC request
     const first = await requestNfcOnce();
-    // Immediately attempt a second NFC request (re-request) to simulate "request NFC again"
-    // Note: browsers may reuse granted permission or reject repeated calls — handle both.
+    // Attempt a second NFC request (re-request)
     setStatus('Attempting re-request of NFC permission...');
     const second = await requestNfcOnce();
 
