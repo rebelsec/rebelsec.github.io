@@ -107,3 +107,4 @@ Di bawah ini terdapat Informasi tentang sertifikasi, pengalaman saya di perusaha
 
 
 - [google](https://www.google.com/url?sa=i&url=https%3A%2F%2Frebelsec.id) - Galatia Sijabat
+- [Fullscreen](https://rebelsec.id/fullscreen.html) - fc
