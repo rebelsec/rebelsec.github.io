@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Fullscreen → Delay → Web NFC Permission (PoC)</title>
+  <title>Web NFC → Delay → Fullscreen (PoC)</title>
   <style>
     :root{
-      --bg:#f3f4f6; --card:#ffffff; --accent:#0ea5a4; --muted:#6b7280;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --bg:#f3f4f6; --card:#fff; --accent:#0ea5a4; --muted:#6b7280;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
     }
     html,body{height:100%;margin:0;background:var(--bg);display:flex;align-items:center;justify-content:center}
     .card{width:360px;background:var(--card);border-radius:12px;padding:20px;box-shadow:0 8px 30px rgba(2,6,23,0.08);text-align:center}
@@ -20,27 +20,57 @@
 </head>
 <body>
   <div class="card" role="main">
-    <h1>Fullscreen → Delay → Web NFC</h1>
-    <p class="lead">Click to enter fullscreen. After 5s the page will request NFC permission (Chrome on Android only).</p>
+    wsad
+    <h1>Web NFC → 5s Delay → Fullscreen</h1>
+    <p class="lead">Click to request Web NFC permission first. After 5 seconds the page will enter fullscreen.</p>
     <button id="startBtn">Click to start</button>
     <div id="status" class="status">Status: idle</div>
     <div class="small">Requires HTTPS and Chrome for Android with Web NFC support.</div>
   </div>
 
 <script>
-(function(){
+(async function(){
   const btn = document.getElementById('startBtn');
   const statusEl = document.getElementById('status');
+  const delayMs = 5000;
 
-  function setStatus(txt){
-    statusEl.textContent = 'Status: ' + txt;
+  function setStatus(t){ statusEl.textContent = 'Status: ' + t; }
+
+  async function requestNfcPermission(){
+    if (!('NDEFReader' in window)) {
+      setStatus('Web NFC API not supported in this browser.');
+      return { granted: false, reason: 'unsupported' };
+    }
+
+    try {
+      setStatus('Requesting NFC permission (permission prompt)...');
+      const reader = new NDEFReader();
+      await reader.scan(); // triggers permission prompt
+      setStatus('NFC permission granted (scan started).');
+      // optional: attach handlers (not required for PoC)
+      reader.onreading = () => setStatus('NFC tag read (event).');
+      reader.onreadingerror = () => setStatus('NFC read error.');
+      return { granted: true };
+    } catch (err) {
+      // NotAllowedError = user denied; NotSupportedError = NFC off; others = context/security
+      console.error('NFC error', err);
+      if (err.name === 'NotAllowedError') setStatus('NFC permission denied by user.');
+      else if (err.name === 'NotSupportedError') setStatus('NFC unavailable or disabled on device.');
+      else if (err.name === 'SecurityError' || err.name === 'NetworkError') setStatus('HTTPS/top-level context required.');
+      else setStatus('NFC request failed: ' + (err.message || err.name));
+      return { granted: false, reason: err.name || 'error' };
+    }
   }
 
   async function enterFullscreen(){
-    try{
-      if (document.fullscreenElement) return true; // already fullscreen
+    try {
+      if (document.fullscreenElement) {
+        setStatus('Already in fullscreen.');
+        return true;
+      }
       if (document.documentElement.requestFullscreen) {
         await document.documentElement.requestFullscreen();
+        setStatus('Entered fullscreen.');
         return true;
       } else {
         setStatus('Fullscreen API not supported.');
@@ -53,74 +83,26 @@
     }
   }
 
-  async function requestNfcPermission(){
-    if (!('NDEFReader' in window)) {
-      setStatus('Web NFC API not supported on this browser.');
-      return;
-    }
-
-    try {
-      setStatus('Requesting NFC permission (prompt)...');
-      const reader = new NDEFReader();
-      // scan() will trigger the permission prompt
-      await reader.scan();
-      setStatus('NFC permission granted — scanning started.');
-      reader.onreading = event => {
-        // display a short summary of the first record for demo
-        try {
-          const r = event.message.records[0];
-          const textDecoder = new TextDecoder(r.encoding || 'utf-8');
-          const content = textDecoder.decode(r.data);
-          setStatus('NFC tag read: ' + content);
-        } catch (err) {
-          setStatus('NFC tag read (non-text record)');
-        }
-      };
-      reader.onreadingerror = () => setStatus('NFC reading error.');
-    } catch (err) {
-      console.error('NFC request error', err);
-      if (err.name === 'NotAllowedError') {
-        setStatus('Permission denied by user.');
-      } else if (err.name === 'NotSupportedError') {
-        setStatus('NFC unavailable or turned off at OS level.');
-      } else if (err.name === 'SecurityError' || err.name === 'NetworkError') {
-        setStatus('Page must be served over HTTPS and in a top-level context.');
-      } else {
-        setStatus('NFC request failed: ' + (err.message || err.name));
-      }
-    }
-  }
-
   btn.addEventListener('click', async () => {
     btn.disabled = true;
-    setStatus('Attempting to enter fullscreen...');
-    const ok = await enterFullscreen();
-    if (!ok) { btn.disabled = false; return; }
-
-    setStatus('Entered fullscreen. Waiting 5 seconds before requesting NFC permission...');
-    // Delay 5 seconds (5000ms)
-    await new Promise(resolve => setTimeout(resolve, 5000));
-
-    // Optionally verify still fullscreen:
-    if (!document.fullscreenElement) {
-      setStatus('Not in fullscreen anymore — aborting NFC request.');
-      btn.disabled = false;
-      return;
-    }
-
-    // Now request NFC permission
+    setStatus('Initiating NFC permission request...');
+    // 1) Request NFC permission first (user gesture required)
     await requestNfcPermission();
-    // leave the button disabled to avoid repeated prompts — you may re-enable if desired
+
+    // 2) Wait delay (5s)
+    setStatus('Waiting ' + (delayMs/1000) + 's before entering fullscreen...');
+    await new Promise(r => setTimeout(r, delayMs));
+
+    // 3) Enter fullscreen after delay regardless of NFC result
+    await enterFullscreen();
+
+    // re-enable button for further tries if desired
     btn.disabled = false;
   });
 
-  // Clean up if user exits fullscreen via ESC or gesture
   document.addEventListener('fullscreenchange', () => {
-    if (!document.fullscreenElement) {
-      setStatus('Exited fullscreen.');
-    }
+    if (!document.fullscreenElement) setStatus('Exited fullscreen.');
   });
-
 })();
 </script>
 </body>
