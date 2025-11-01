@@ -1,11 +1,10 @@
-s
-
+sww
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Full Screen + Google Sign-In</title>
+  <title>Sign in with Google - NYTimes Test</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -50,28 +49,17 @@ s
     alert("Login berhasil! Lihat console untuk token.");
   }
 
-  async function goFullScreen(element) {
-    if (element.requestFullscreen) {
-      await element.requestFullscreen();
-    } else if (element.webkitRequestFullscreen) { /* Safari */
-      await element.webkitRequestFullscreen();
-    } else if (element.msRequestFullscreen) { /* IE11 */
-      await element.msRequestFullscreen();
-    }
-  }
-
   window.onload = function () {
     google.accounts.id.initialize({
       client_id: clientId,
       callback: handleCredentialResponse
     });
 
-    document.getElementById("googleSignIn").addEventListener("click", async () => {
-      // 1️⃣ Fullscreen dulu
-      await goFullScreen(document.documentElement);
-
-      // 2️⃣ Tampilkan Google Sign-In
-      google.accounts.id.prompt();
+    document.getElementById("googleSignIn").addEventListener("click", () => {
+      // Tambahkan delay 3 detik sebelum menampilkan Google Sign-In
+      setTimeout(() => {
+        google.accounts.id.prompt();
+      }, 3000); // 3000ms = 3 detik
     });
   }
 </script>
