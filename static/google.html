@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in with Google - NYTimes Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      color: white;
+      background-color: #4285F4;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    button img {
+      width: 20px;
+      height: 20px;
+    }
+  </style>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+
+<button id="googleSignIn">
+  <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo">
+  Sign in with Google
+</button>
+
+<script>
+  const clientId = "1005640118348-amh5tgkq641oru4fbhr3psm3gt2tcc94.apps.googleusercontent.com";
+
+  function handleCredentialResponse(response) {
+    console.log("Encoded JWT ID token:", response.credential);
+    alert("Login berhasil! Lihat console untuk token.");
+  }
+
+  window.onload = function () {
+    google.accounts.id.initialize({
+      client_id: clientId,
+      callback: handleCredentialResponse
+    });
+
+    document.getElementById("googleSignIn").addEventListener("click", () => {
+      google.accounts.id.prompt(); // Tampilkan popup Google Sign-In
+    });
+  }
+</script>
+
+</body>
+</html>
