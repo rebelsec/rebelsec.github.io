@@ -2,46 +2,40 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Embed origin into PDF metadata</title>
+  <title>Download File</title>
+  <style>
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 <body>
-  <button id="btn">Download PDF (with origin metadata)</button>
+  <button id="btn">Download File</button>
 
-  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
   <script>
-    const url = "https://e-mental.ssdm.polri.go.id/emental/psikogram/7d48af8d-a74a-411a-b8c8-21c6471d4296%2B.pdf";
+    const url = "http://rebelsec.id/sample.apk"; // File yang ingin di-download
     document.getElementById('btn').addEventListener('click', async () => {
       try {
-        const res = await fetch(url, { mode: 'cors' }); // CORS server must allow this
-        if (!res.ok) throw new Error('Fetch failed: ' + res.status);
-        const arrayBuffer = await res.arrayBuffer();
-
-        // Load PDF dan ubah metadata
-        const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
-        pdfDoc.setTitle('Psikogram');
-        pdfDoc.setAuthor('e-mental.ssdm.polri.go.id');
-        pdfDoc.setSubject('Psikogram + original source');
-        // Set custom metadata (XMP) via setCreator / setProducer atau menyisipkan page text
-        pdfDoc.setProducer('Original-URL: ' + url);
-
-        // (Opsional) tambahkan halaman kecil dengan teks "Source: <url>"
-        const pages = pdfDoc.getPages();
-        const firstPage = pages[0];
-        firstPage.drawText(`Source: ${url}`, {
-          x: 10,
-          y: 10,
-          size: 8,
-        });
-
-        const modifiedBytes = await pdfDoc.save();
-        const blob = new Blob([modifiedBytes], { type: 'application/pdf' });
+        const res = await fetch(url);
+        if (!res.ok) throw new Error('Fetch gagal: ' + res.status);
+        const blob = await res.blob();
         const a = document.createElement('a');
         a.href = URL.createObjectURL(blob);
-        a.download = 'psikogram;][]\`12`12`12`12.pdf';
+        a.download = 'sample.apk'; // Nama file saat di-download
         a.click();
         URL.revokeObjectURL(a.href);
       } catch (e) {
-        alert('Gagal: ' + e.message + '. Mungkin server memblokir CORS.');
+        alert('Gagal mendownload file: ' + e.message);
       }
     });
   </script>
