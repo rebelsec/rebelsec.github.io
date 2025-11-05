@@ -1,3 +1,4 @@
+s
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,24 +21,10 @@
   </style>
 </head>
 <body>
-  <button id="btn">Download File</button>
 
-  <script>
-    const url = "http://rebelsec.id/sample.apk"; // File yang ingin di-download
-    document.getElementById('btn').addEventListener('click', async () => {
-      try {
-        const res = await fetch(url);
-        if (!res.ok) throw new Error('Fetch gagal: ' + res.status);
-        const blob = await res.blob();
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = 'sample.apk'; // Nama file saat di-download
-        a.click();
-        URL.revokeObjectURL(a.href);
-      } catch (e) {
-        alert('Gagal mendownload file: ' + e.message);
-      }
-    });
-  </script>
+<a href="http://rebelsec.id/sample.apk" download>
+  <button>Download File</button>
+</a>
+
 </body>
 </html>
