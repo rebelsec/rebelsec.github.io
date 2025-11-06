@@ -112,7 +112,9 @@ Di bawah ini terdapat Informasi tentang sertifikasi, pengalaman saya di perusaha
 
 - [rebelsec.id/poc.html](https://rebelsec.id/poc.html)
 - [about:blank](https://frozzipies.github.io/spoofff.html)
-- [long subdomain](https://long-extended-subdomain-name-containing-many-letters-and-dashes.badssl.com/)
 - [CTXS](https://www.google.com/search?q=burung&ctxs=2)
 - [http://googlelogoligature.net/](http://googlelogoligature.net/)
 - [blob](https://bugzilla.mozilla.org/attachment.cgi?id=8816351)
+
+
+- [long subdomains]([https://long-extended-subdomain-name-containing-many-letters-and-dashes.badssl.com/](http://longlonglonglonglonglonglonglonglonglonglonglonglonglonglongsss.longlonglonglonglonglonglonglonglonglonglonglonglonglonglongsss.longlonglonglonglonglonglonglonglonglonglonglonglonglonglongsss.com/))
