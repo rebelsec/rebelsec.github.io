@@ -117,4 +117,4 @@ Di bawah ini terdapat Informasi tentang sertifikasi, pengalaman saya di perusaha
 - [blob](https://bugzilla.mozilla.org/attachment.cgi?id=8816351)
 
 
-- [long subdomains]([https://long-extended-subdomain-name-containing-many-letters-and-dashes.badssl.com/](http://longlonglonglonglonglonglonglonglonglonglonglonglonglonglongsss.longlonglonglonglonglonglonglonglonglonglonglonglonglonglongsss.longlonglonglonglonglonglonglonglonglonglonglonglonglonglongsss.com/))
+- [long subdomains](http://longlonglonglonglonglonglonglonglonglonglonglonglonglonglongsss.longlonglonglonglonglonglonglonglonglonglonglonglonglonglongsss.longlonglonglonglonglonglonglonglonglonglonglonglonglonglongsss.com/))
