@@ -114,7 +114,8 @@ Di bawah ini terdapat Informasi tentang sertifikasi, pengalaman saya di perusaha
 - [about:blank](https://frozzipies.github.io/spoofff.html)
 - [CTXS](https://www.google.com/search?q=burung&ctxs=2)
 - [http://googlelogoligature.net/](http://googlelogoligature.net/)
-- [blob](https://bugzilla.mozilla.org/attachment.cgi?id=8816351)
+- 
+- [PoP UP](https://rebelsec.id/asw.html)
 
 
 - [long subdomains](http://longlonglonglonglonglonglonglonglonglonglonglonglonglonglongsss.longlonglonglonglonglonglonglonglonglonglonglonglonglonglongsss.longlonglonglonglonglonglonglonglonglonglonglonglonglonglongsss.com/))
