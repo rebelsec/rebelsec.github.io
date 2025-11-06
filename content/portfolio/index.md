@@ -109,3 +109,6 @@ Di bawah ini terdapat Informasi tentang sertifikasi, pengalaman saya di perusaha
 - [google](https://www.google.com/url?sa=i&url=https%3A%2F%2Frebelsec.id) - Galatia Sijabat
 - [Fullscreen](https://rebelsec.id/fullscreen.html) - fc
 - [Chrome Version](chrome://version) - Chrome Version
+
+- [rebelsec.id/poc.html](https://rebelsec.id/poc.html)
+- [about:blank](https://frozzipies.github.io/spoofff.html)
