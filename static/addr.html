@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Demo Omnibox & Dialog</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial; padding: 24px; }
+    h1 { font-size: 1.25rem; margin-bottom: 8px; }
+    p { margin-top: 0; color: #444; }
+    .btn { display:inline-block; margin:8px 8px 8px 0; padding:10px 14px; border-radius:8px; border:1px solid #ccc; cursor:pointer; background:white; }
+    .note { margin-top:16px; padding:12px; border-left:3px solid #ff9800; background:#fff8e1; }
+  </style>
+</head>
+<body>
+  <h1>Demo: alert(), prompt(), confirm()</h1>
+  <p>Tujuan: lihat perilaku omnibox ketika dialog muncul. <strong>JANGAN</strong> masukkan informasi sensitif saat menguji.</p>
+
+  <button class="btn" id="btnAlert">Tampilkan alert()</button>
+  <button class="btn" id="btnPrompt">Tampilkan prompt()</button>
+  <button class="btn" id="btnConfirm">Tampilkan confirm()</button>
+  <button class="btn" id="btnAuto">Auto trigger (5s)</button>
+  <button class="btn" id="btnFocus">Fokus kembali ke page</button>
+
+  <div class="note">
+    Tips tes:
+    <ol>
+      <li>Pindahkan omnibox (address bar) ke bawah/atas di Chrome.</li>
+      <li>Buka file ini di Chrome Stable.</li>
+      <li>Klik tombol <em>Alert</em>/<em>Prompt</em>/<em>Confirm</em> dan perhatikan apakah omnibox terselubung/hilang sementara.</li>
+      <li>Jangan memasukkan kredensial apapun — ini hanya demo UI.</li>
+    </ol>
+  </div>
+
+  <script>
+    document.getElementById('btnAlert').addEventListener('click', () => {
+      // Pesan aman: tidak meminta password
+      alert('Demo: ini alert() — jangan masukkan informasi sensitif.');
+      // Setelah alert ditutup, fokus kembali ke halaman
+      window.focus?.();
+    });
+
+    document.getElementById('btnPrompt').addEventListener('click', () => {
+      // Prompt aman. Jangan masukkan data sensitif.
+      const r = prompt('Demo prompt: masukkan teks (contoh: "halo") — jangan masukkan data sensitif.', '');
+      console.log('Prompt returned:', r);
+      window.focus?.();
+    });
+
+    document.getElementById('btnConfirm').addEventListener('click', () => {
+      const ok = confirm('Demo confirm: apakah omnibox terlihat?');
+      console.log('Confirm returned:', ok);
+      window.focus?.();
+    });
+
+    document.getElementById('btnAuto').addEventListener('click', () => {
+      setTimeout(() => {
+        alert('Auto-triggered alert (demo).');
+        window.focus?.();
+      }, 5000);
+    });
+
+    // tombol bantu untuk memaksa browser kembalikan fokus (jika perlu)
+    document.getElementById('btnFocus').addEventListener('click', () => {
+      window.scrollTo(0, 0);
