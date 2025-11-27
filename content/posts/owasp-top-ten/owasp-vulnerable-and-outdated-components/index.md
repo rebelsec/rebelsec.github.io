@@ -19,35 +19,35 @@ UseHugoToc: true
 ![Owasp Top 10 Series — A6 (Vulnerable and Outdated Components)](cover.png)
 
 
-## Pengantar
+## Introduction
 
-Artikel kali ini kita akan membahas owasp top 10 yang ada di urutan ke enam untuk tahun 2021 (owasp tiap 4 tahun sekali), ialah **Vulnerable and Outdated Components**.
+In this article, we will discuss the sixth item in the OWASP Top 10 for 2021 (updated every four years): **Vulnerable and Outdated Components**.
 
-OWASP merupakan singkatan dari _Open Web Application Security Project_, yang merupakan sebuah project _Security Web Application_ open source yang diperkasai oleh para penggiat teknologi atau pengembang aplikasi, OWASP sering mengadakan seminar, forum diskusi serta pendidikan untuk para Developer.
+OWASP stands for the **Open Web Application Security Project**, an open-source initiative focused on web application security and supported by security practitioners and software developers. OWASP frequently hosts seminars, discussion forums, and educational programs for developers.
 
-jadi yang dimaksud **OWASP TOP 10**? owasp top 10 merupakan sebuah cara untuk mengkategorikan resiko kerentanan yang sering terjadi pada sebuah aplikasi berbasis website, dari yang paling atas (resiko tertinggi) hingga yang paling bawah (tingkat resiko rendah), Tujuannya apa ?, tentu saja ini sangat berguna bagi para developer aplikasi supaya mereka jadi lebih aware terhadap kerentanan di aplikasi mereka.
+So, what is the **OWASP Top 10**?  
+It is a standardized list categorizing the most common and critical security risks found in web applications—from the highest to the lowest impact. Its purpose is to help developers stay aware of potential vulnerabilities within their applications.
 
 ## Vulnerable and Outdated Components
 
-### apa itu Vulnerable and Outdated Components ?
+### What Is Vulnerable and Outdated Components?
 
-**Vulnerable and Outdated Components** Merupakan sebuah kesalahan dari developer aplikasi yang memakai **Framework / Library** pihak ketiga tetapi masih versi lawas (Outdated), karena biasanya versi Outdate itu sangat rentan terhadadp serangan.
+**Vulnerable and Outdated Components** refers to the use of **third-party frameworks or libraries** that are outdated. Older versions generally contain known vulnerabilities, making them easy targets for attackers.
 
-Ironisnya **Vulnerable and Outdated Components** ini sering terjadi di Indonesia :'(, apalagi situs situs yang tidak di maintenance dengan baik dan terbengkalai sehingga attacker dapat menggunakan kerentanan aplikasi itu.
+Unfortunately, this issue is still very common in Indonesia—especially among poorly maintained or abandoned websites, which become attractive targets for exploitation.
 
-## Praktikal
+## Practical Case Studies
 
-### #135288 Multiple vulnerabilities in a WordPress plugin at drive.uber.com
+### #135288 — Multiple Vulnerabilities in a WordPress Plugin at drive.uber.com  
+Source: https://hackerone.com/reports/135288
 
-sumber : https://hackerone.com/reports/135288
+An attacker scanned **drive.uber.com** and found that the application was still running **WordPress 4.4.2**, an outdated version.
 
-attacker melakukan scanning di website **drive.uber.com** dan menemukan bahwa aplikasi tersebut masih menggunakan _WordPress 4.4.2_ (versi lawas).
-
-dari \*WordPress 4.4.2\*\* ditemukan beberapa kerentanan seperti :
+Several vulnerabilities were discovered in **WordPress 4.4.2**, including:
 
 1. SQL INJECTION
 
-attacker membuat sebuah halaman seperti berikut
+The attacker created a page containing the following form:
 
 ```
 <form action="https://drive.uber.com/ukmarketplace/wp-admin/edit.php?post_type=qa_faqs&page=faqpageorder" target="_blank"  method="post" style="display: none;">
@@ -73,9 +73,9 @@ POST di _plugins/q-and-a/inc/reorder.php_
 
 2. Cross-Site Scripting (XSS)
 
-Attacker Login ke _admin panel_ -> _Settings_ -> _Q & A_
+The attacker logged into the _admin panel_ -> _Settings_ -> _Q & A_
 
-ganti FAQ Homepage :
+Then modified the FAQ Homepage field to :
 
 ```
 '"/autofocus/onfocus=alert(document.domain%2bdocument.cookie);//
@@ -83,47 +83,36 @@ ganti FAQ Homepage :
 
 ### #168485 Exposed, outdated nginx server (v1.4.6) potentially vulnerable to heap-based buffer overflow & RCE
 
-sumber : https://hackerone.com/reports/168485
+Source : https://hackerone.com/reports/168485
 
-attacker melakukan **recon** do ip address _54.153.101.52_ dan mendapati bahwa masih menggunakan **nginx version 1.4.6**
+The attacker performed **reconnaissance** on the IP address _54.153.101.52_ and discovered that it was running **nginx version 1.4.6**, an outdated release.
 
-[CVE-2014-0133](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0133)
-
-CVE diatas terdapat kerentanan **RCE**
+The server was affected by **CVE-2014-0133**, a known vulnerability that allows for **Remote Code Execution (RCE)**.
 
 ![Hackerone CVE 2014 0133](1.png)
 
-## Mitigasi
+## Mitigation
 
-Segera lakukan pengecekan berkala di aplikasi yang anda gunakan, jika memang memakai pihak ketiga (Framework) dari developer lain. usahakan selalu memakai versi yang paling update untuk meredam resiku peretasan.
+Perform regular security reviews on the applications you manage, especially those that rely on third-party frameworks or components. Always ensure that you are using the most up-to-date and supported versions to minimize the risk of exploitation.
 
 ## References
 
-OWASP Application Security Verification Standard: V1 Architecture, design and threat modelling
-
-OWASP Dependency Check (for Java and .NET libraries)
-
-OWASP Testing Guide - Map Application Architecture (OTG-INFO-010)
-
-OWASP Virtual Patching Best Practices
-
-The Unfortunate Reality of Insecure Libraries
-
-MITRE Common Vulnerabilities and Exposures (CVE) search
-
-National Vulnerability Database (NVD)
-
-Retire.js for detecting known vulnerable JavaScript libraries
-
-Node Libraries Security Advisories
-
-Ruby Libraries Security Advisory Database and Tools
+- OWASP Application Security Verification Standard: V1 Architecture, Design, and Threat Modelling  
+- OWASP Dependency Check (for Java and .NET libraries)  
+- OWASP Testing Guide – Map Application Architecture (OTG-INFO-010)  
+- OWASP Virtual Patching Best Practices  
+- *The Unfortunate Reality of Insecure Libraries*  
+- MITRE Common Vulnerabilities and Exposures (CVE) Search  
+- National Vulnerability Database (NVD)  
+- Retire.js for identifying vulnerable JavaScript libraries  
+- Node Security Advisories  
+- Ruby Security Advisory Database and Tools  
 
 ```
 https://safecode.org/publication/SAFECode_Software_Integrity_Controls0610.pdf
 ```
 
-# Beberapa kerentanan lain di list CWE
+## Additional CWE References
 
 CWE-937 OWASP Top 10 2013: Using Components with Known Vulnerabilities
 
