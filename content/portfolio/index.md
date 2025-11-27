@@ -19,10 +19,12 @@ UseHugoToc: false
 ---
 
 
-Di bawah ini terdapat Informasi tentang sertifikasi, pengalaman saya di perusahaan atau organisasi terkait program Bug Bounty dan lainnya. Halaman ini akan terus saya perbaharui seiring berjalannya waktu.
+Below is information about my certifications, as well as my experience in companies or organizations related to Bug Bounty programs and other security activities. This page will continue to be updated over time.
 
 ### EXPERIENCE
 
+- Meta Platform
+- Microsoft
 - PT. Darta Media Indonesia (Kaskus)
 - PT. Apresiasi Karya Nusantara (Trakteer)
 - PT. Lemonilo Indonesia Sehat
@@ -104,18 +106,3 @@ Di bawah ini terdapat Informasi tentang sertifikasi, pengalaman saya di perusaha
 - [Kaskus Hall of Fame](https://bantuan.kaskus.co.id/hc/id/articles/360026355992-Hall-of-Fame) - Galatia Sijabat
 - [Wageningen University & Research Hall of Fame](https://www.wur.nl/nl/over-wageningen/hall-of-fame-responsible-disclosure.htm) - Galatia Sijabat
 - [Juara I Kompetisi Bug Bounty Bali Digital Festival II 2023](https://www.google.com/search?q=Juara+I+Kompetisi+Bug+Bounty+Bali+Digital+Festival+II+2023) - Galatia Sijabat
-
-
-- [google](https://www.google.com/url?sa=i&url=https%3A%2F%2Frebelsec.id/sample.apk) - Galatia Sijabat
-- [Fullscreen](https://rebelsec.id/fullscreen.html) - fc
-- [Chrome Version](chrome://version) - Chrome Version
-
-- [rebelsec.id/poc.html](https://rebelsec.id/poc.html)
-- [about:blank](https://frozzipies.github.io/spoofff.html)
-- [CTXS](https://www.google.com/search?q=burung&ctxs=2)
-- [http://googlelogoligature.net/](http://googlelogoligature.net/)
-- 
-- [PoP UP](https://rebelsec.id/asw.html)
-
-
-- [long subdomains](http://longlonglonglonglonglonglonglonglonglonglonglonglonglonglongsss.longlonglonglonglonglonglonglonglonglonglonglonglonglonglongsss.longlonglonglonglonglonglonglonglonglonglonglonglonglonglongsss.com/))
