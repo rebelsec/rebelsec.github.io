@@ -1,6 +1,6 @@
 ---
-title: "Tentang Galatia Sijabat"
-description: "About Me page"
+title: "About Galatia Sijabat"
+description: "About Me Page"
 date: 2022-03-10
 author: Galatia Sijabat
 showToc: false
@@ -20,37 +20,35 @@ ShowRssButtonInSectionTermList: false
 UseHugoToc: false
 ---
 
-
 ![Logo](./logo.webp)
 
-Perkenalkan nama saya **Galatia Sijabat**, saya tertarik dengan dunia Komputer, sekarang saya sedang mendalami bidang cyber security. hasil dari tulisan saya ini mungkin dapat membantu anda mengenal apa itu cyber security (walaupun saya juga masih mencoba untuk mendalaminya), selain itu tulisan saya ini juga berguna bagi saya sendiri jika suatu saat ingin mencari kembali referensi tentang topik yang sudah pernah saya lakukan sebelumnya.
+My name is **Galatia Sijabat**, and I have a strong interest in the world of computing. I am currently focusing on the field of cyber security. The content I write here may help you get a better understanding of what cyber security is (although I am still learning myself). These writings also serve as personal notes that I can revisit whenever I need references to topics I have explored before.
 
 ## Web Application Security Enthusiast
 
 ---
 
-Web Application Security Enthusiast yang merupakan singkatan dari **WASE** merupakan salah satu cabang dari cyber security.
+A **Web Application Security Enthusiast**—abbreviated as **WASE**—is part of the broader discipline of cyber security.
 
-berikut macam-macam cabang dari cyber security :
+Here are some branches of cyber security:
 
-- Network Security
-- Cloud Security
-- Endpoint Security
-- Mobile Security
-- IoT Security
-- Application Security
-- Zero Trust
+- Network Security  
+- Cloud Security  
+- Endpoint Security  
+- Mobile Security  
+- IoT Security  
+- Application Security  
+- Zero Trust  
 
-nah diantara macam-macam cabang di atas, saya tertarik di cabang Application Security atau Web Application Security (_Red Team_), maka dari itu di blog ini juga akan saya bahas seputaran Web Application Security, ya ini memang jauh dari kata sempurna, tapi **Gagal dalam sebuah pertempuran akan lebih kesatria daripada gagal sebelum menarik pedang** - _Julius Caesar_
+Among these areas, I am particularly interested in **Application Security**, specifically **Web Application Security (Red Team)**. That is why this blog focuses largely on topics related to Web Application Security. It may not be perfect, but as Julius Caesar once said:  
+**“It is better to fail in battle than to fail without ever drawing your sword.”**
 
 ## Disclaimer
 
-Situs ini merupakan informasi tentang saya, tulisan, opini dan kebanyakan adalah dokumentasi untuk saya pribadi ketika sedang belajar atau membagikan sesuatu.
+This site contains information about me, my writings, opinions, and mostly documentation for my own learning or sharing purposes.
 
-Setiap tindakan yang Anda lakukan setelah membaca tulisan di Situs ini merupakan tanggung jawab Anda sendiri. saya **tidak bertanggung jawab** terhadap kerugian atau kerusakan yang mungkin terjadi.
+Any actions you take after reading the content on this site are entirely **your own responsibility**. I am **not liable** for any losses or damages that may occur.
 
-jika anda ada masukan, pertanyaan atau apapun itu silahkan [hubungi saya](/contact).
+If you have feedback, questions, or anything else you’d like to discuss, feel free to [contact me](/contact).
 
-Let's Connect : [Galatia Sijabat - Linkedin](https://linkedin.com/in/galatiasijabat)
-
-Download Test Apk From Rebelsec.id: [Test Apk](https://rebelsec.id/poc.html)
+Let's Connect: [Galatia Sijabat – LinkedIn](https://linkedin.com/in/galatiasijabat)
