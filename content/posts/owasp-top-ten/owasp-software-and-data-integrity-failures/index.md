@@ -3,7 +3,7 @@ title: "Owasp Top 10 Series — A8 (Software and Data Integrity Failures)"
 date: 2022-05-13T18:45:34+07:00
 tags: ["security"]
 categories: ["Owasp Top Ten"]
-description: "OWASP Top 10 — A8: Software and Data Integrity Failures adalah kerentanan yang terjadi akibat kurangnya validasi integritas dalam pembaruan perangkat lunak, dependensi, atau data penting, memungkinkan serangan seperti supply chain attacks dan manipulasi data. Pencegahan meliputi penggunaan digital signature, verifikasi sumber dependensi, serta implementasi mekanisme keamanan berbasis checksum."
+description: "OWASP Top 10 — A8: Software and Data Integrity Failures refers to vulnerabilities that arise from insufficient integrity validation in software updates, dependencies, or critical data, enabling attacks such as supply chain compromises and data manipulation. Mitigation includes the use of digital signatures, trusted dependency verification, and security mechanisms based on checksums.."
 disableHLJS: true 
 disableShare: false
 disableHLJS: false
@@ -19,56 +19,68 @@ UseHugoToc: true
 ![Owasp Top 10 Series — A8 (Software and Data Integrity Failures)](cover.png)
 
 
-## Pengantar
+## Introduction
 
-Artikel kali ini kita akan membahas owasp top 10 yang ada di urutan ke delapan untuk tahun 2021 (owasp tiap 4 tahun sekali), ialah **Software and Data Integrity Failures**.
+In this article, we will discuss the eighth item in the OWASP Top 10 for 2021 (OWASP releases a new list every four years), which is **Software and Data Integrity Failures**.
 
-OWASP merupakan singkatan dari _Open Web Application Security Project_, yang merupakan sebuah project _Security Web Application_ open source yang diperkasai oleh para penggiat teknologi atau pengembang aplikasi, OWASP sering mengadakan seminar, forum diskusi serta pendidikan untuk para Developer.
+OWASP, short for the *Open Web Application Security Project*, is an open-source initiative focused on improving the security of web applications. The organization regularly conducts seminars, discussions, and educational programs for developers and security professionals.
 
-jadi yang dimaksud **OWASP TOP 10**? owasp top 10 merupakan sebuah cara untuk mengkategorikan resiko kerentanan yang sering terjadi pada sebuah aplikasi berbasis website, dari yang paling atas (resiko tertinggi) hingga yang paling bawah (tingkat resiko rendah), Tujuannya apa ?, tentu saja ini sangat berguna bagi para developer aplikasi supaya mereka jadi lebih aware terhadap kerentanan di aplikasi mereka.
+So, what is the **OWASP Top 10**?  
+It is a classification of the most critical security risks commonly found in web applications, ranked from the highest to the lowest severity. Its primary purpose is to help developers better understand and mitigate these risks in the systems they build.
+
+---
 
 ## Software and Data Integrity Failures
 
-### Apa itu Software and Data Integrity Failures ?
+### What Are Software and Data Integrity Failures?
 
-**Software and Data Integrity Failures** merupakan sebuah kegagalan software atau aplikasi yang bekerja untuk memeriksa aplikasi integritas sebuah aplikasi.
+**Software and Data Integrity Failures** refer to weaknesses in an application that arise when the system does not properly validate the integrity of software or data being used.
 
-- CWE-829: Inclusion of Functionality from Untrusted Control Sphere
-- CWE-494: Download of Code Without Integrity Check
-- CWE-502: Deserialization of Untrusted Data.
+This category includes vulnerabilities such as:
 
-Gagalnya Menjaga Integritas Data dan Perangkat Lunak disebabkan oleh kode dan infrastruktur yang tidak mencegah terjadinya pelanggaran integritas. Contohnya sebuah objek/data yang telah di enkoding/diserialisasi di dalam struktur yang dapat dilihat dan dimodifikasi oleh penyerang rentan terhadap deserialisasi yang tidak aman.
+- **CWE-829**: Inclusion of Functionality from Untrusted Control Sphere  
+- **CWE-494**: Download of Code Without Integrity Check  
+- **CWE-502**: Deserialization of Untrusted Data  
 
-Contoh lainnya adalah aplikasi yang bergantung pada plugins, libraries, atau modules yang asalnya dari sumber yang tidak dipercaya, repositori - repositori, Content Delivery Network (CDNs). CI/CD Pipeline yang tidak aman dapat menyebabkan munculnya akses illegal/tidak sah, kode yang berbahaya, atau kerusakan sistem.
+These failures often occur because the application, environment, or infrastructure does not adequately prevent unauthorized modifications. Examples include:
 
-Terakhir, aplikasi sekarang banyak yang memiliki fitur pembaharuan otomatis, yang dimana pembaharuan - pembaharuan yang ada diunduh tanpa adanya verifikasi integritas dan diterapkan/digunakan terhadap aplikasi yang sebelumnya terpercaya. Penyerang memiliki kemungkinan besar untuk mengunggah pembaharuan milik mereka sendiri untuk di distribusikan dan dijalankan/diterapkan pada semua instalasi/pembaharuan.
+- Serialized objects or data structures that can be viewed or manipulated by attackers, making them vulnerable to insecure deserialization.
+- Applications that rely on plugins, libraries, or modules from untrusted sources (repositories, mirrors, or CDNs).
+- Insecure CI/CD pipelines that may allow unauthorized access, malicious code injection, or system compromise.
+- Automated update mechanisms that download updates without verifying their integrity — enabling attackers to distribute malicious updates across all installations.
 
-## Praktikal
+---
 
-### A08:2021 – Software and Data Integrity Failures- Explained
+## Practical
+
+### A08:2021 – Software and Data Integrity Failures — Explained
 
 {{< youtube D4iQg4V7GmY >}}
 
-## Mitigasi
+---
 
-- menggunakan _signature_ atau _mechanism_ untuk memverifikasi
-- menggunakan _libaries_ dan _depedencies_ yang terpercaya
+## Mitigation
 
-## Referensi
+- Use signatures, checksums, or integrity verification mechanisms before executing or installing software components.
+- Ensure that all libraries, dependencies, and plugins originate from trusted and verified sources.
+- Implement allowlists for third-party software sources.
+- Secure CI/CD pipelines with strict access controls and artifact validation.
+- Prefer software packages, images, or binaries that include official hash verification.
 
-[OWASP Cheat Sheet: Infrastructure as Code](https://cheatsheetseries.owasp.org/cheatsheets/Infrastructure_as_Code_Security_Cheat_Sheet.html)
+---
 
-[OWASP Cheat Sheet: Deserialization](https://www.owasp.org/index.php/Deserialization_Cheat_Sheet)
+## References
 
-[SAFECode Software Integrity Controls](https://safecode.org/publication/SAFECode_Software_Integrity_Controls0610.pdf)
+- [OWASP Cheat Sheet: Infrastructure as Code](https://cheatsheetseries.owasp.org/cheatsheets/Infrastructure_as_Code_Security_Cheat_Sheet.html)  
+- [OWASP Cheat Sheet: Deserialization](https://www.owasp.org/index.php/Deserialization_Cheat_Sheet)  
+- [SAFECode Software Integrity Controls](https://safecode.org/publication/SAFECode_Software_Integrity_Controls0610.pdf)  
+- [A 'Worst Nightmare' Cyberattack: The SolarWinds Hack](https://www.npr.org/2021/04/16/985439655/a-worst-nightmare-cyberattack-the-untold-story-of-the-solarwinds-hack)  
+- [CodeCov Bash Uploader Compromise](https://about.codecov.io/security-update)  
+- [Securing DevOps — Julien Vehent](https://www.manning.com/books/securing-devops)
 
-[A 'Worst Nightmare' Cyberattack: The Untold Story Of The SolarWinds Hack](https://www.npr.org/2021/04/16/985439655/a-worst-nightmare-cyberattack-the-untold-story-of-the-solarwinds-hack)
+---
 
-[CodeCov Bash Uploader Compromise](https://about.codecov.io/security-update)
-
-[Securing DevOps by Julien Vehent](https://www.manning.com/books/securing-devops)
-
-# Beberapa Kerentanan lain di list CWE
+## Additional Related CWE Entries
 
 [CWE-345 Insufficient Verification of Data Authenticity](https://cwe.mitre.org/data/definitions/345.html)
 
