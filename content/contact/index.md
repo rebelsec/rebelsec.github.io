@@ -18,10 +18,10 @@ ShowRssButtonInSectionTermList: false
 UseHugoToc: false
 ---
 
+To get in touch with me, please send an email to [galatiasijabat03@gmail.com](mailto:galatiasijabat03@gmail.com). This address is dedicated exclusively for messages directly related to me.
 
-Untuk menghubungi saya, silahkan kirimkan email ke [galatiasijabat03@gmail.com](mailto:galatiasijabat03@gmail.com). Email tersebut saya gunakan untuk menerima semua email masuk yang khusus hanya yang berhubungan dengan saya langsung.
+If you contact me using the email listed on this page, I highly recommend that you **encrypt your email** before sending it. My **PGP Key** information is provided below.
 
-Jika anda menghubungi saya via email yang tertera di halaman ini, sangat disarankan untuk _encrypt email_ yang anda kirimkan ke saya. Informasi _PGP Key_ saya ada di bawah ini.
 
 ### Security Key
 
