@@ -1,87 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <title>Test App</title>
-
-  <!-- Manifest PWA -->
-  <link rel="manifest" href="./manifest.json">
-
-  <!-- Basic Style -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Popup Launcher — permission.site</title>
   <style>
-    body, html {
-      height: 100%;
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-    }
-
-    header {
-      background: #3f51b5;
-      color: white;
-      padding: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 20px;
-    }
-
-    /* Install Button */
-    #butInstall {
-      padding: 8px 14px;
-      background: white;
-      color: #3f51b5;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      display: none; /* default hidden */
-    }
-
-    /* Jika sudah terinstall / running standalone, sembunyikan tombol */
-    @media (display-mode: standalone) {
-      #butInstall { display: none !important; }
-    }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; padding: 2rem; line-height:1.5; }
+    .card { max-width:480px; margin:0 auto; padding:1.5rem; border-radius:10px; box-shadow:0 6px 24px rgba(0,0,0,.08); }
+    button { font-size:1rem; padding:0.6rem 1rem; border-radius:8px; cursor:pointer; border:1px solid #222; background:white; }
+    #fallback { margin-top:1rem; display:none; }
+    a.fallback-link { color: #0b66ff; text-decoration:none; font-weight:600; }
   </style>
-
 </head>
 <body>
+  <div class="card" role="region" aria-label="Popup launcher">
+    <h2>Buka permission.site di popup</h2>
+    <p>Klik tombol di bawah untuk membuka <code>https://permission.site/</code> dalam jendela popup.</p>
 
-  <header>
-    <h1>Test - App</h1>
-    <button id="butInstall">Install</button>
-  </header>
+    <button id="openBtn" type="button">Buka Popup</button>
 
-<a href="https://www.evil.com/">Visit Evil Site</a>
+    <div id="fallback" aria-live="polite">
+      <p>Popup atau tab diblokir. Klik link ini untuk membuka secara manual:</p>
+      <p><a class="fallback-link" href="https://permission.site/" target="_blank" rel="noopener noreferrer">Buka permission.site (di tab baru)</a></p>
+    </div>
+  </div>
 
-
-
-  <!-- PWA INSTALL SCRIPT -->
   <script>
-    let installEvent;
-    const btnInstall = document.getElementById("butInstall");
+    // URL target
+    const url = 'https://evil.com';
 
-    window.addEventListener("beforeinstallprompt", (e) => {
-      e.preventDefault();
-      installEvent = e;
-      btnInstall.style.display = "inline-block";
-    });
+    function openPopup() {
+      // ukuran dan posisi popup (terpusat)
+      const w = 900;
+      const h = 700;
+      const left = Math.floor((screen.width - w) / 2);
+      const top = Math.floor((screen.height - h) / 2);
+      const features = `width=${w},height=${h},left=${left},top=${top},resizable=yes,scrollbars=yes,toolbar=no,menubar=no`;
 
-    btnInstall.addEventListener("click", () => {
-      btnInstall.disabled = true;
-      installEvent.prompt();
-    });
-  </script>
+      // Coba buka popup (nama "permissionPopup" agar reuse jendela jika sudah dibuka)
+      const popup = window.open(url, 'permissionPopup', features);
 
-  <!-- SERVICE WORKER -->
-  <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("./service-worker.js");
+      // Jika popup diblokir (null) atau tidak dapat diakses, coba buka di tab baru
+      if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+        const tab = window.open(url, '_blank', 'noopener');
+        if (!tab) {
+          // Kalau juga diblokir, tampilkan fallback link agar user manual klik
+          document.getElementById('fallback').style.display = 'block';
+        } else {
+          try { tab.focus(); } catch(e) { /* ignore */ }
+        }
+      } else {
+        try { popup.focus(); } catch(e) { /* ignore */ }
+      }
     }
-  </script>
 
+    // Pasang event listener user-initiated
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('openBtn').addEventListener('click', openPopup);
+    });
+
+    /* 
+    Jika Anda ingin mencoba membuka popup secara otomatis setelah user melakukan aksi lain (mis. klik di halaman),
+    panggil openPopup() dari handler aksi tersebut. Hindari membuka popup otomatis saat halaman load karena
+    hampir pasti akan diblokir oleh browser.
+    */
+  </script>
 </body>
 </html>
