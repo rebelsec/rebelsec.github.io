@@ -1,29 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>PWNED Page</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      padding-top: 100px;
-      cursor: pointer;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>⚠ SYSTEM BREACH DETECTED ⚠</title>
+
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    color: #00ff00;
+    font-family: "Courier New", monospace;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    padding: 20px;
+  }
+
+  .blink {
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  .red {
+    color: red;
+  }
+
+  .glitch {
+    position: relative;
+    animation: glitch 0.3s infinite;
+  }
+
+  @keyframes glitch {
+    0% { left: 0; }
+    25% { left: 2px; }
+    50% { left: -2px; }
+    75% { left: 1px; }
+    100% { left: 0; }
+  }
+
+  #terminal {
+    white-space: pre-wrap;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  #overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255,0,0,0.05);
+    pointer-events: none;
+    animation: flash 0.5s infinite;
+  }
+
+  @keyframes flash {
+    0% { opacity: 0.1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 0.1; }
+  }
+</style>
 </head>
+
 <body>
-  <h1>Auto Alert Loop</h1>
-  <p>Don't even need to click 👀</p>
 
-  <script>
-    function infiniteAlert() {
-      alert('HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello');
-      setTimeout(infiniteAlert, 0); // Immediately schedule the next alert
+<h1 class="glitch red">⚠ UNAUTHORIZED ACCESS DETECTED ⚠</h1>
+<p class="blink">Do NOT close this page</p>
+
+<div id="terminal"></div>
+
+<div id="overlay"></div>
+
+<script>
+  const terminal = document.getElementById("terminal");
+
+  const logs = [
+    "[+] Initializing exploit framework...",
+    "[+] Bypassing browser sandbox...",
+    "[+] Enumerating permissions...",
+    "[!] Camera: ACCESS GRANTED",
+    "[!] Microphone: ACCESS GRANTED",
+    "[!] Location: ACCESS GRANTED",
+    "[!] Clipboard: ACCESS GRANTED",
+    "[+] Injecting persistence module...",
+    "[+] Dumping session tokens...",
+    "[!] WARNING: System integrity compromised",
+    "[!] Uploading data to remote server...",
+    "[+] Upload complete",
+    "[!] YOU HAVE BEEN PWNED"
+  ];
+
+  let i = 0;
+
+  function typeLog() {
+    if (i < logs.length) {
+      terminal.innerHTML += logs[i] + "\n";
+      i++;
+      setTimeout(typeLog, 400);
+    } else {
+      setTimeout(() => {
+        alert("⚠ SYSTEM BREACH ⚠\nYour activity is being monitored.");
+        typeLog();
+      }, 500);
     }
+  }
 
-    // Start loop when page loads
-    window.onload = infiniteAlert;
-  </script>
+  window.onload = () => {
+    document.documentElement.requestFullscreen?.();
+    typeLog();
+  };
+</script>
+
 </body>
 </html>
