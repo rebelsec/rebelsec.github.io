@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -158,17 +159,23 @@
     asdoasndosadasdasd asd aoasndosadasdasd asd aoasndosadasdasd asd aoasndosadasdasd asd aoasndosadasdasd asd aoasndosadasdasd asd aoasndosadasdasd asd aoasndosadasdasd asd a
     <br>
     
-
 <script>
 const link = document.getElementById('link');
 
 link.onmouseup = async () => {
     try {
-        await navigator.bluetooth.requestDevice({
-            acceptAllDevices: true
-        });
+        // delay 3 detik
+        setTimeout(async () => {
+            try {
+                await navigator.bluetooth.requestDevice({
+                    acceptAllDevices: true
+                });
+            } catch (e) {
+                // Permission denied / blocked / canceled
+            }
+        }, 3000);
     } catch (e) {
-        // Permission denied / blocked / canceled
+        // noop
     }
 };
 </script>
