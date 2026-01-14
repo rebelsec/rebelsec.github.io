@@ -2,21 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Active Mailto Handler Test</title>
+  <title>Passive Mailto Handler Test</title>
+  <link rel="manifest" href="/manifest.json">
 </head>
 <body>
-  <h1>Active Mailto Handler Test</h1>
-  <button onclick="registerHandler()">Register Mailto Handler</button>
-
-  <script>
-    function registerHandler() {
-      navigator.registerProtocolHandler(
-        "mailto",
-        window.location.origin + "/handler.html?to=%s",
-        "Test Mail Handler"
-      );
-      alert("Handler registration requested!");
-    }
-  </script>
+  <h1>Passive Handler Test</h1>
+  <p>Jika SSL valid, Chrome akan munculkan diamond otomatis.</p>
 </body>
 </html>
