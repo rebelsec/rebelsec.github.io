@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const mail = urlParams.get("to");
+    document.write("<h2>Mail Handler</h2>");
+    document.write("<p>Mailto: " + mail + "</p>");
+  </script>
+</body>
+</html>
