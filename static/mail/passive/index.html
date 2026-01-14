@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Active Mailto Handler Test</title>
+</head>
+<body>
+  <h1>Active Mailto Handler Test</h1>
+  <button onclick="registerHandler()">Register Mailto Handler</button>
+
+  <script>
+    function registerHandler() {
+      navigator.registerProtocolHandler(
+        "mailto",
+        window.location.origin + "/handler.html?to=%s",
+        "Test Mail Handler"
+      );
+      alert("Handler registration requested!");
+    }
+  </script>
+</body>
+</html>
