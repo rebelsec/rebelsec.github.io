@@ -19,9 +19,9 @@
 </head>
 <body>
   <div class="card">
-    <h1>Wait 3s → Fullscreen + Redirect</h1>
+    <h1>Wait 3s → Fullscreen → Wait 3s → Redirect</h1>
     <div class="btn-row">
-      <button id="btnFsOnly">Wait 3s → Fullscreen + Redirect</button>
+      <button id="btnFsOnly">Start</button>
     </div>
     <div id="status" class="status">Status: idle</div>
   </div>
@@ -30,7 +30,8 @@
 (() => {
   const btnFsOnly = document.getElementById('btnFsOnly');
   const statusEl = document.getElementById('status');
-  const DELAY_MS = 3000;
+  const FIRST_DELAY_MS = 3000;   // Delay sebelum fullscreen
+  const REDIRECT_DELAY_MS = 3000; // Delay sebelum redirect
 
   function setStatus(txt){
     statusEl.textContent = 'Status: ' + txt;
@@ -48,10 +49,6 @@
         setStatus('Entering fullscreen...');
         await document.documentElement.requestFullscreen();
         setStatus('Entered fullscreen.');
-
-        // === REDIRECT SETELAH FULLSCREEN ===
-        location.href = "https://google.com";
-
         return true;
       } else {
         setStatus('Fullscreen API not supported.');
@@ -66,10 +63,22 @@
 
   btnFsOnly.addEventListener('click', async () => {
     btnFsOnly.disabled = true;
-    setStatus('Waiting ' + (DELAY_MS/1000) + 's before entering fullscreen...');
-    await delay(DELAY_MS);
-    await enterFullscreen();
-    setStatus('Fullscreen sequence complete.');
+
+    // Delay sebelum fullscreen
+    setStatus('Waiting ' + (FIRST_DELAY_MS/1000) + 's before entering fullscreen...');
+    await delay(FIRST_DELAY_MS);
+
+    // Masuk fullscreen
+    const ok = await enterFullscreen();
+    if (ok) {
+      // Delay sebelum redirect
+      setStatus('Fullscreen OK. Redirecting in ' + (REDIRECT_DELAY_MS/1000) + 's...');
+      await delay(REDIRECT_DELAY_MS);
+
+      // Redirect
+      location.href = "https://google.com";
+    }
+
     btnFsOnly.disabled = false;
   });
 
