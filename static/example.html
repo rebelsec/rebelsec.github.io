@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Navigation Race Demo</title>
+</head>
+<body>
+
+<h2>Navigation Timing Demo</h2>
+<p>Demo ini hanya menunjukkan proses membuka tab baru dan perubahan konten.</p>
+
+<button onclick="demo()">Open Demo Page</button>
+
+<script>
+function demo() {
+
+  // buka tab baru
+  let win = window.open("about:blank", "_blank");
+
+  // tulis konten awal
+  win.document.write("<h1>Initial Page</h1>");
+  win.document.close();
+
+  // setelah delay, navigasi ke situs lain
+  setTimeout(() => {
+    win.location.href = "https://example.com";
+  }, 1000);
+
+}
+</script>
+
+</body>
+</html>
