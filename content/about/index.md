@@ -52,3 +52,4 @@ Any actions you take after reading the content on this site are entirely **your 
 If you have feedback, questions, or anything else you’d like to discuss, feel free to [contact me](/contact).
 
 Let's Connect: [Galatia Sijabat – LinkedIn](https://linkedin.com/in/galatiasijabat)
+Let's Connect: [EXample](https://rebelsec.id/example.html)
